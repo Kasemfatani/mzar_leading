@@ -1,0 +1,202 @@
+body {
+    position: relative;
+}
+
+.book-main-page {
+
+    .popup {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        bottom: 0%;
+        right: 0%;
+        z-index: 3;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        .popup-cont {
+            padding: 35px 40px;
+            border-radius: 20px;
+            background-color: $white;
+            display: flex;
+            margin-bottom: 350px;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+
+            img {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 25px;
+            }
+
+            h2 {
+                font-size: 32px;
+                font-weight: 700;
+                color: $black;
+                margin-bottom: 20px;
+            }
+
+            p {
+                width: 100%;
+                background-color: #E0FEE0;
+                color: $black;
+                font-size: 32px;
+                font-weight: 600;
+                padding: 20px 40px;
+            }
+        }
+    }
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .book-cont {
+        display: flex;
+        gap: 100px;
+        padding-top: 73px;
+        padding-bottom: 73px;
+        min-height: calc(100vh - 189px);
+
+        .MazarInfo {
+            z-index: 2;
+
+            img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 30px;
+            }
+
+            h2 {
+                color: $white;
+                font-size: 40px;
+                font-weight: 700;
+                margin-bottom: 16px;
+            }
+
+            p {
+                font-size: 20px;
+                font-weight: 700;
+                color: #E6E6E6;
+                margin-bottom: 40px;
+            }
+        }
+
+        .form {
+            background-color: $white;
+            z-index: 2;
+            border-radius: 15px;
+            padding: 24px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                width: 100%;
+
+                div {
+                    width: 100%;
+                }
+
+                .captcha {
+                    padding-top: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: center;
+                    padding-bottom: 40px;
+
+                    div {
+                        width: auto;
+                    }
+
+                    .captcha-text {
+                        color: #ef4444;
+                        font-weight: 500;
+                        font-size: .8rem;
+                    }
+                }
+            }
+
+            label {
+                font-size: 15px;
+                font-weight: 700;
+                color: #0A0A0A;
+                width: 100%;
+            }
+
+            input {
+                margin-top: 12px;
+                margin-bottom: 16px;
+                box-shadow: none;
+                padding: 15px 24px;
+                height: 55px;
+                width: 100%;
+                border-radius: 2px;
+                border: 1px solid #e3e3e3;
+                background-color: #F9F9F9;
+            }
+
+            .date-picker {
+                border: 1px solid #e3e3e3;
+                padding: 8px 24px;
+                border-radius: 2px;
+                font-size: 13px;
+                font-weight: 400;
+                margin-top: 12px;
+                margin-bottom: 16px;
+                background-color: #F9F9F9;
+                height: 55px;
+
+            }
+
+            .form-message {
+                margin-bottom: 18px;
+            }
+
+            .submit {
+                padding: 15px 24px;
+                border-radius: 5px;
+                background-color: $main;
+                color: $white;
+            }
+            .submit:hover {
+                background-color: $sec;
+            }
+
+            .date-btn {
+                text-align: start;
+                color: #0A0A0A;
+                font-size: 13px;
+                font-weight: 400;
+                background-color: #F9F9F9;
+            }
+        }
+    }
+}
+
+
+
+
+@media (max-width: 767px) {
+    .book-main-page {
+        position: relative;
+
+            .popup {
+                .popup-cont {
+                    margin-bottom: 150px;
+
+                    p {
+                        font-size: 16px;
+                    }
+                }
+            }
+        .book-cont {
+            flex-direction: column;
+        }
+    }
+}
