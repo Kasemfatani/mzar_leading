@@ -74,7 +74,7 @@ export default function About() {
                                             <div className="counter">
                                                 <h4>{num.title}</h4>
                                                 <p className="whitespace-pre-wrap text-6xl font-semibold tracking-tighter text-secColor dark:text-white">
-                                                    + <NumberTicker value={(num.counter.split(',').join(''))} />
+                                                    <NumberTicker value={(num.counter.split(',').join(''))} />
                                                 </p>
                                                 <h5>{num.description}</h5>
                                             </div>

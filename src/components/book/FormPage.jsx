@@ -304,7 +304,7 @@ export default function FormPage(props) {
                                             </FormControl>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectLabel>Heraa</SelectLabel>
+                                                    <SelectLabel>Destenation</SelectLabel>
                                                     {data.data.packages.map((packageItem, index) => (
                                                         <SelectItem value={`${packageItem.id}-${packageItem.name}`}>{packageItem.name}</SelectItem>
                                                     ))}
