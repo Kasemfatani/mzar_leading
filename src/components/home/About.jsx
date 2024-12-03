@@ -38,6 +38,8 @@ export default function About() {
                 }).then(response => {
                     setNumbers(response.data);  // Set the response data to state
                     setLoading(false);  // Set loading to false
+                    console.log(response.data);
+                    
                 }).catch(error => {
                     setError(error);  // Handle any errors
                     console.error('Error fetching data:', error);
@@ -46,6 +48,7 @@ export default function About() {
         }
     }, []);  // Run this effect whenever the `language` changes
     // Example: Toggle between 'en' and 'ar'
+    
 
     const toggleLanguage = () => {
         setLanguage(prevLanguage => (prevLanguage === 'en' ? 'ar' : 'en'));
@@ -74,7 +77,12 @@ export default function About() {
                                             <div className="counter">
                                                 <h4>{num.title}</h4>
                                                 <p className="whitespace-pre-wrap text-6xl font-semibold tracking-tighter text-secColor dark:text-white">
-                                                    <NumberTicker value={(num.counter.split(',').join(''))} />
+                                                    {
+                                                        num.counter.includes('.')?
+                                                        <NumberTicker value={(num.counter.split(',').join(''))} decimalPlaces={1}  />
+                                                        :
+                                                        <NumberTicker value={(num.counter.split(',').join(''))} decimalPlaces={0}  />
+                                                    }
                                                 </p>
                                                 <h5>{num.description}</h5>
                                             </div>

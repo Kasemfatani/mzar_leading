@@ -306,7 +306,6 @@ export default function FormPage(props) {
                                                 <SelectGroup>
                                                     {data.data.packages.map((packageItem, index) => (
                                                         <SelectItem value={`${packageItem.id}-${packageItem.name}`}>{packageItem.name}</SelectItem>
-
                                                     ))}
                                                 </SelectGroup>
                                             </SelectContent>
