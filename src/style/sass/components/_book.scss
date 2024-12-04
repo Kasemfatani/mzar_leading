@@ -2,53 +2,54 @@ body {
     position: relative;
 }
 
-.book-main-page {
+.popup {
+    // position: absolute;
+    // top: 0%;
+    // left: 0%;
+    // bottom: 0%;
+    // right: 0%;
+    // z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: calc(100vh - 192px);
 
-    .popup {
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        bottom: 0%;
-        right: 0%;
-        z-index: 3;
+    .popup-cont {
+        padding: 35px 40px;
+        border-radius: 20px;
+        background-color: $white;
         display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.5);
+        // margin-bottom: 350px;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
 
-        .popup-cont {
-            padding: 35px 40px;
-            border-radius: 20px;
-            background-color: $white;
-            display: flex;
-            margin-bottom: 350px;
-            flex-direction: column;
-            align-items: center;
-            max-width: 800px;
+        img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 25px;
+        }
 
-            img {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 25px;
-            }
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: $black;
+            margin-bottom: 20px;
+        }
 
-            h2 {
-                font-size: 32px;
-                font-weight: 700;
-                color: $black;
-                margin-bottom: 20px;
-            }
-
-            p {
-                width: 100%;
-                background-color: #E0FEE0;
-                color: $black;
-                font-size: 32px;
-                font-weight: 600;
-                padding: 20px 40px;
-            }
+        p {
+            width: 100%;
+            background-color: #E0FEE0;
+            color: $black;
+            font-size: 32px;
+            font-weight: 600;
+            padding: 20px 40px;
         }
     }
+}
+.book-main-page {
+
 
     .overlay {
         background-color: rgba(0, 0, 0, 0.7);

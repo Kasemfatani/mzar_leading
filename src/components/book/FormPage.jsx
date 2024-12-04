@@ -65,14 +65,14 @@ export default function FormPage(props) {
                 lang: 'en',
             },
         }).then(response => {
-            setDone(true);
-            document.querySelector('html').style.overflow = 'hidden';
-            const interval = setInterval(() => {
-                setDone(false);
-                document.querySelector('html').style.overflow = 'auto';
-                router.push('/');
-                clearInterval(interval);
-            }, 3000);
+            // setDone(true);
+            router.push('/congats');
+            // document.querySelector('html').style.overflow = 'hidden';
+            // const interval = setInterval(() => {
+            //     // setDone(false);
+            //     // document.querySelector('html').style.overflow = 'auto';
+            //     clearInterval(interval);
+            // }, 3000);
         })
     };
     useEffect(() => {
