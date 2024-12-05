@@ -8,6 +8,7 @@ import { z } from 'zod';
 import validator from "validator";
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import PhnoeInput from 'react-phone-number-input'; // Importing a phone number input component.
 import {
     Form,
     FormControl,
@@ -114,11 +115,11 @@ export default function FormPage(props) {
     }
     const formSchema = z
         .object({
-            
+
             name: z.string().min(1, { message: "Name is required" }).max(50, { message: "Name must be at most 50 characters" }),
             phone: z.string().refine(validator.isMobilePhone, { message: "Invalid phone number" }),
             date: z.date(),
-            destniation: z.string().min(1, { message: "Destniation is required" }), 
+            destniation: z.string().min(1, { message: "Destniation is required" }),
         })
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -237,19 +238,20 @@ export default function FormPage(props) {
                                 bounce: 0.2, // Small bounce effect for the animation
                             }}>
                             <FormField
+                                className="w-full"
                                 control={form.control}
-                                name="phone"
-                                className='w-full'
+                                name="phone" // Field for phone number
                                 render={({ field }) => (
-                                    <FormItem>
-                                        <FormControl>
-                                            <Input
-                                                type="tel"
-                                                placeholder="Your whats app number"
-                                                {...field}
+                                    <FormItem className={`w-full `}>
+                                        <FormControl className=''>
+                                            <PhnoeInput initialValueFormat="national"
+                                                international
+                                                countryCallingCodeEditable={false}
+                                                defaultCountry="SA" // Setting the default country to Egypt
+                                                className="" onChange={field.onChange}
                                             />
                                         </FormControl>
-                                        <FormMessage className='form-message' />
+                                        <FormMessage className='form-message' /> {/* Displaying validation messages */}
                                     </FormItem>
                                 )}
                             />
