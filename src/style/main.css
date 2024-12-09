@@ -1703,7 +1703,7 @@ body {
 
 .PhoneInput {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
 }
@@ -1895,12 +1895,32 @@ body {
   font-size: 32px;
   font-weight: 700;
 }
+@media screen and (max-width: 767px) {
+  .explore .overll .padg h3 {
+    font-size: 16px;
+  }
+}
 .explore .overll h2 {
   font-size: 42px;
   font-weight: 700;
   color: var(--white-color);
   margin-bottom: 32px;
   max-width: 550px;
+}
+@media screen and (max-width: 767px) {
+  .explore .overll h2 {
+    font-size: 24px;
+  }
+}
+.explore .overll a {
+  font-size: 20px;
+  font-weight: 700;
+}
+@media screen and (max-width: 767px) {
+  .explore .overll a {
+    width: 100%;
+    text-align: center;
+  }
 }
 .explore .overll a:hover {
   background-color: var(--sec-color);
