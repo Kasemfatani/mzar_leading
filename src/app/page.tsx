@@ -5,6 +5,7 @@ import Paths from '../components/home/Paths';
 import About from '../components/home/About';
 import GenSection from '../components/home/GenSection';
 import AppExplore from '../components/home/AppExplore';
+import Explore from '../components/home/Explore';
 
 export default function Home() {
   const [lang, setLang] = useState('en');
@@ -25,6 +26,7 @@ export default function Home() {
     <main>
       <Hero></Hero>
       <Paths></Paths>
+      <Explore/>
       <About></About>
       <GenSection/>
       <AppExplore/>

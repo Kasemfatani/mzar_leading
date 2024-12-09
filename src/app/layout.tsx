@@ -8,7 +8,9 @@ import Footer from '@/components/home/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import '../style/main.css';
 import { GoogleTagManager } from '@next/third-parties/google'
+import {Merriweather} from 'next/font/google'
 // import { Navigation } from 'lucide-react';
+const merriweather = Merriweather({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-merriweather' })
 
 
 export const metadata: Metadata = {

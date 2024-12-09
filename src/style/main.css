@@ -1869,4 +1869,39 @@ body {
   .book-main-page .book-cont {
     flex-direction: column;
   }
+}
+.explore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.explore .overll {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 64px 0;
+  width: 100%;
+}
+.explore .overll .padg {
+  background-color: #714D02;
+  padding: 10px 24px;
+  border-radius: 16px;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 16px;
+}
+.explore .overll .padg h3 {
+  color: var(--white-color);
+  font-family: "--font-merriweather";
+  font-size: 32px;
+  font-weight: 700;
+}
+.explore .overll h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--white-color);
+  margin-bottom: 32px;
+  max-width: 550px;
+}
+.explore .overll a:hover {
+  background-color: var(--sec-color);
 }/*# sourceMappingURL=main.css.map */
