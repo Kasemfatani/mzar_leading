@@ -53,45 +53,56 @@ body {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    gap: 20px;
-  }
-  .PhoneInput .PhoneInputCountry {
-    display: flex;
-    height: 55px;
-    border-radius: 2px;
-    border: 1px solid #e3e3e3;
-    background-color: #F9F9F9;
-    overflow: hidden;
-    margin-top: 12px;
-    margin-bottom: 16px;
-    max-width: 70px;
-  }
-  .PhoneInput .PhoneInputCountrySelect {
-    width: 20px;
-  }
-  .PhoneInput .PhoneInputCountryIcon {
-    max-height: 100%;
-    height: 55px;
-    padding: 3px;
-    max-width: 50px;
-  }
-  .PhoneInput .PhoneInputCountryIcon input:focus-visible {
-    border: none;
-    outline: none;
-  }
-  .PhoneInput .PhoneInputCountryIcon img {
-    height: 100%;
-    border-radius: 5px;
-  }
-  .PhoneInput .PhoneInputCountrySelectArrow {
-    display: none;
-  }
-  
-  .book-main-page .book-cont .form form .PhoneInputCountry {
-    width: 100px;
+    gap: 10px;
+
+    .PhoneInputCountry {
+        display: flex;
+        height: 55px;
+        width: 105px;
+        border-radius: 2px;
+        border: 1px solid #e3e3e3;
+        background-color: #F9F9F9;
+        overflow: hidden;
+        // width: 100px;
+        margin-top: 12px;
+        margin-bottom: 16px;
+        max-width: 110px;
+    }
+
+    .PhoneInputCountrySelect {
+        width: 100%;
+        // display: none;
+    }
+
+    .PhoneInputCountryIcon {
+        max-height: 100%;
+        height: 55px;
+        padding: 3px;
+        max-width: 50px;
+        display: none;
+        input:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+        img {
+            height: 100%;
+            border-radius: 5px;
+        }
+
+    }
+
+    .PhoneInputCountrySelectArrow {
+        display: none;
+    }
+}
+
+.book-main-page .book-cont .form form .PhoneInputCountry {
+    width: 106px;
     flex-shrink: 0;
-  }
-  
+}
+
+
 .book-main-page {
 
 
@@ -209,6 +220,7 @@ body {
                 background-color: $main;
                 color: $white;
             }
+
             .submit:hover {
                 background-color: $sec;
             }
@@ -231,15 +243,16 @@ body {
     .book-main-page {
         position: relative;
 
-            .popup {
-                .popup-cont {
-                    margin-bottom: 150px;
+        .popup {
+            .popup-cont {
+                margin-bottom: 150px;
 
-                    p {
-                        font-size: 16px;
-                    }
+                p {
+                    font-size: 16px;
                 }
             }
+        }
+
         .book-cont {
             flex-direction: column;
         }
