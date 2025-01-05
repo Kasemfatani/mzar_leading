@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Paths() {
 
 
@@ -25,7 +26,7 @@ export default function Paths() {
                 lang: localStorage.getItem('lang'), // Change language dynamically based on state
             };
             // Fetch data from the API with Axios
-            axios.get('https://mzarapp.com/api/landing/home/packages'
+            axios.get(`${API_BASE_URL}/landing/home/packages`
                 , {
                     headers: headers,
                 }).then(response => {

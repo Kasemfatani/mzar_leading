@@ -7,6 +7,7 @@ import hero from '/public/hero.jpg'
 import iPhones from '/public/iphones.webp'
 import { motion } from 'framer-motion';
 import Loading from '@/app/loading';
+import { API_BASE_URL } from '@/lib/apiConfig';
 // import {
 //   Tooltip,
 //   TooltipContent,
@@ -28,7 +29,7 @@ export default function Hero() {
                 lang: localStorage.getItem('lang'), // Change language dynamically based on state
             };
             // Fetch data from the API with Axios
-            axios.get('https://mzarapp.com/api/landing/home/features'
+            axios.get(`${API_BASE_URL}/landing/home/features`
                 , {
                     headers: headers,
                 }).then(response => {

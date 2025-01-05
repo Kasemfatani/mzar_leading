@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NumberTicker from '../ui/number-ticker';
 import Loading from '@/app/loading'
+import { API_BASE_URL } from '../../lib/apiConfig';
 // import vid from '../../assets/images/home/vid.mp4'
 export default function About() {
     const [loading, setLoading] = useState(true); // State for loading indicator
@@ -21,7 +22,7 @@ export default function About() {
                 lang: localStorage.getItem('lang'), // Change language dynamically based on state
             };
             // Fetch data from the API with Axios
-            axios.get('https://mzarapp.com/api/landing/home/about'
+            axios.get(`${API_BASE_URL}/landing/home/about`
                 , {
                     headers: headers,
                 }).then(response => {
@@ -32,7 +33,7 @@ export default function About() {
                     console.error('Error fetching data:', error);
                 });
 
-            axios.get('https://mzarapp.com/api/landing/home/counter'
+            axios.get(`${API_BASE_URL}/landing/home/counter`
                 , {
                     headers: headers,
                 }).then(response => {

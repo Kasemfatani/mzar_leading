@@ -6,6 +6,7 @@ import PathInfo from '../../components/Path/PathInfo';
 import Destinations from '../../components/Path/Destinations';
 import { useSearchParams } from 'next/navigation'
 import Loading from '../loading';
+import { API_BASE_URL } from '../../lib/apiConfig';
 export default function Home() {
   const searchParams = useSearchParams()
   const [pathId, setPathId] = useState(searchParams.get('id'))
@@ -24,7 +25,7 @@ export default function Home() {
         lang: localStorage.getItem('lang'), // Change language dynamically based on state
       };
       // Fetch data from the API with Axios
-      axios.get(`https://mzarapp.com/api/landing/home/packages/details?package_id=${pathId}`
+      axios.get(`${API_BASE_URL}/landing/home/packages/details?package_id=${pathId}`
         , {
           headers: headers,
         })
