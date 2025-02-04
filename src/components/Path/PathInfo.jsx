@@ -20,13 +20,16 @@ export default function PathInfo(pathData) {
       setLanguage(localStorage.getItem('lang') || 'en');
     }
   }, []);
-  
-  
+
+
   return (
     <div className='container m-auto path'>
 
       <div className="pathHead">
-        <h1>{pathData.data.name}</h1>
+        <div className="title">
+          <h1>{pathData.data.name}</h1>
+          <p className='main-description'>{pathData.data.description}</p>
+        </div>
         <div className="btn-offer-cont">
           <Offer />
           <Link href={`/book`} className="book-link">
@@ -107,7 +110,7 @@ export default function PathInfo(pathData) {
             <p className='trip-duration-head'>{language === 'en' ? 'Trip duration:' : "مدة الرحلة:"}</p>
             <p className='trip-duration-title'>{data.duration}</p>
           </div>
-          <div className="trip-data ready-cont" style={{ backgroundImage: `url(${img1.src})`}}>
+          <div className="trip-data ready-cont" style={{ backgroundImage: `url(${img1.src})` }}>
             <h4>{language === 'en' ? 'Best time to visit' : 'وقت الزيارة المفضل'} </h4>
             <p>{data.best_visit_time}</p>
           </div>
