@@ -1,22 +1,32 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import img1 from '/public/Thaw.jpg';
 import Link from 'next/link';
 export default function PathInfo(pathData) {
     let [more, setMore] = useState(false);
     let [data, setData] = useState(pathData.data);
-//   let [language, setLanguage] = useState(data.lang);
-  let [language, setLanguage] = useState('en');
+    //   let [language, setLanguage] = useState(data.lang);
+    let [language, setLanguage] = useState('en');
 
     let destinations = data.locations
     let [destinationsCopy, setDestinationsCopy] = useState(destinations.slice(0, 4));
+    
     // setDestinationsCopy(destinations.slice(0, 4));
     // if (destinations.length > 4) {
     // }
     // else {
     //     setDestinationsCopy([...destinations]);
     // }
-
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setLanguage(localStorage.getItem('lang'));
+            // Define the headers with the selected language
+            const headers = {
+                lang: localStorage.getItem('lang'), // Change language dynamically based on state
+            };
+        }
+    }, []);
     return (
         <div className="destinations container m-auto">
             <div className="destinations-drid">
@@ -29,7 +39,7 @@ export default function PathInfo(pathData) {
                             <div className="text">
                                 <h2>{item.name}</h2>
                                 <h3>{item.title}</h3>
-                                <p>{item.description}</p>
+                                <p>{item.short_description}</p>
 
                             </div>
                         </div>
@@ -68,13 +78,15 @@ export default function PathInfo(pathData) {
 
                     </div>
                 </div> */}
-                <h2 className='show-more' style={{ display: destinations.length > destinationsCopy.length ? 'block' : 'none' }} onClick={() => setDestinationsCopy([...destinations])}>Show More</h2>
+                <h2 className='show-more' style={{ display: destinations.length > destinationsCopy.length ? 'block' : 'none' }} onClick={() => setDestinationsCopy([...destinations])}>{language === 'en' ? 'Show More' : 'اظهار المزيد'}</h2>
             </div>
 
-            <div className="ready">
-                <h2>{language === 'en' ? 'Ready to start your journey?' : 'مستعد لبدء رحلتك؟'} </h2>
-                <p>{language === 'en' ? 'Please contact us and book your trip' :'يرجى الاتصال بنا وحجز رحلتك' }</p>
-                <Link href={'/book'}>{language === 'en' ? 'Book Now' : 'حجز الان'}</Link>
+            <div className="ready-cont" style={{ backgroundImage: `url(${img1.src})`}}>
+                <div className="ready ">
+                    <h2>{language === 'en' ? 'Ready to start your journey?' : 'مستعد لبدء رحلتك؟'} </h2>
+                    <p>{language === 'en' ? 'Please contact us and book your trip' : 'يرجى الاتصال بنا وحجز رحلتك'}</p>
+                    <Link href={'/book'}>{language === 'en' ? 'Book Now' : 'حجز الان'}</Link>
+                </div>
             </div>
         </div>
     );

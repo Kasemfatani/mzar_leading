@@ -6,7 +6,7 @@ import PathInfo from '../../components/Path/PathInfo';
 import Destinations from '../../components/Path/Destinations';
 import { useSearchParams } from 'next/navigation'
 import Loading from '../loading';
-import { API_BASE_URL } from '../../lib/apiConfig';
+import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Home() {
   const searchParams = useSearchParams()
   const [pathId, setPathId] = useState(searchParams.get('id'))
@@ -32,7 +32,6 @@ export default function Home() {
         .then(response => {
           setData(response.data);  // Set the response data to state
           setLoading(false);  // Set loading to false
-          console.log(data);
 
         })
         .catch(error => {
@@ -42,7 +41,6 @@ export default function Home() {
         });
     }
   }, []);  // Run this effect whenever the `language` changes
-  console.log(data);
 
   return (
     <>

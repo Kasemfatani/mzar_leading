@@ -21,7 +21,7 @@ export default function Hero() {
     const [error, setError] = useState(null);
     const [language, setLanguage] = useState('en');  // Default language is 'en'
     useEffect(() => {
-        setLoading(true);
+        // setLoading(true);
         if (typeof window !== 'undefined') {
             // Define the headers with the selected language
             setLanguage(localStorage.getItem('lang'));
@@ -45,42 +45,47 @@ export default function Hero() {
         }
     }, []);  // Run this effect whenever the `language` changes
     return (
-        <div className="hero" style={{ backgroundImage: `url(${hero.src})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' ,direction: language === 'ar' ? 'rtl' : 'ltr'}}>
+        <div className="hero">
             {
                 loading ? <Loading /> :
-                    <div className="relative">
-                        <div className=" bg-black/50 overlay" >
-                            <div className="welcome container m-auto">
-                                <div className="hero-text">
-                                    {language === 'en' ? <h1>Explore <span>Makkah</span> with us !</h1> : <h1>استكشف <span>مكة</span> معنا</h1>}
-                                    <p>{language==='en'?' let us make your Umrah unforgettable':'استمتع معنا بعمرة لا تنسى'} </p>
-                                    <Link href="/#paths" className='hero-book-btn'>{language === 'en' ? 'Book Now' :'احجز الان'}</Link>
+                    <div className="hero" style={{ backgroundImage: `url(${hero.src})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', direction: language === 'ar' ? 'rtl' : 'ltr' }}>
+                        <div className="relative">
+                            <div className=" bg-black/50 overlay" >
+                                <div className="welcome container m-auto">
+                                    <div className="hero-text">
+                                        {language === 'en' ? <h1>Explore <span>Makkah</span> with us !</h1> : <h1>استكشف <span>مكة</span> معنا</h1>}
+                                        <p>{language === 'en' ? ' Your Makkah tour starts from here' : ' رحلتك بمكة بداية من هنا'} </p>
+                                        <Link href="/#paths" className='hero-book-btn'>{language === 'en' ? 'Book Now' : 'احجز الان'}</Link>
+                                    </div>
+                                    <div className="iPhones">
+                                        <Image src={iPhones} alt="Mazar" className="iphones-img" />
+                                    </div>
                                 </div>
-                                <div className="iPhones">
-                                    <Image src={iPhones} alt="Mazar" className="iphones-img" />
+                                <div className="features container m-auto">
+                                    {data?.data.map((feature, index) => (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -100 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{
+                                                type: 'spring',
+                                                bounce: 0.2,
+                                                duration: index + 1 * .3,
+                                            }}
+                                            key={index}
+                                            viewport={{ once: true }}
+                                            className="feature">
+                                            <Image src={feature.icon} alt="Mazar" width={32} height={32} className=" h-8 w-auto " />
+                                            <p>{feature.title}</p>
+                                        </motion.div>
+                                    ))}
                                 </div>
-                            </div>
-                            <div className="features container m-auto">
-                                {data?.data.map((feature, index) => (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: -100 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{
-                                            type: 'spring',
-                                            bounce: 0.2,
-                                            duration: index + 1 * .3,
-                                        }}
-                                        key={index}
-                                        viewport={{ once: true }}
-                                        className="feature">
-                                        <Image src={feature.icon} alt="Mazar" width={32} height={32} className=" h-8 w-auto " />
-                                        <p>{feature.title}</p>
-                                    </motion.div>
-                                ))}
                             </div>
                         </div>
                     </div>
             }
+            {/* <Link href='https://hajjconfex.com/visitor-registration' target='_blank'>
+                <Image src={language === 'en' ? hero2 : hero3} alt="Mazar" className="img-banner" />
+            </Link> */}
         </div>
     );
 }

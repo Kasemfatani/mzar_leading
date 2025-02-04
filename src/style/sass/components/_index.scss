@@ -1,6 +1,13 @@
 .hero {
     margin-bottom: 47px;
-
+    height: calc(100vh - 92px);
+    .img-banner{
+        width: 100%;
+        object-fit: cover;
+    }
+    .relative{
+        height: 100%;
+    }
     .img-cont {
         width: 100%;
         // aspect-ratio: 1200/576;
@@ -20,26 +27,26 @@
         gap: 60px;
         padding-top: 56px;
         padding-bottom: 56px;
-
+        height: 100%;
         .welcome {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            .iPhones{
-                img{
-                    animation: dance 2s infinite alternate
-                }
-            }
+            // .iPhones{
+            //     img{
+            //         animation: dance 2s infinite alternate
+            //     }
+            // }
         }
 
         .hero-text {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            max-width: 450px;
-
+            
             h1 {
+                max-width: 450px;
                 font-size: 56px;
                 font-weight: 600;
                 color: $white;
@@ -100,11 +107,14 @@
                 }
             }
 
-            .feature:hover {
-                background: linear-gradient(118.84deg, #FFFAFA 38.25%, #1AC5BD 97.19%)
-            }
+            // .feature:hover {
+            //     background: linear-gradient(118.84deg, #FFFAFA 38.25%, #1AC5BD 97.19%)
+            // }
         }
     }
+}
+p{
+    text-align: justify;
 }
 .rtl{
     direction: rtl;
@@ -216,14 +226,16 @@ html {
                 padding: 8px;
                 border-radius: 8px;
                 background-color: $white;
-
+                margin:0 10px;
+                width: 90px;
+                height: 100%;
                 h6 {
                     color: #080808;
                     font-size: 14px;
                     font-weight: 400;
                     margin-bottom: 0;
                     display: -webkit-box;
-                    -webkit-line-clamp: 1;
+                    -webkit-line-clamp: 2;
                     /* Number of lines */
                     -webkit-box-orient: vertical;
                     overflow: hidden;
@@ -233,7 +245,10 @@ html {
             }
 
             .samll-img-cont {
-                width: 100%;
+                width: 75px;
+                height: 75px;
+                margin: 0 auto;
+
                 aspect-ratio: 1/1;
 
                 img {
@@ -444,7 +459,7 @@ html {
       }
 }
 .genGeb {
-    background-color: rgba(252, 252, 252, 0.9);
+    background-color: #fff;
 
     .genSection {
         display: flex;
@@ -507,7 +522,6 @@ html {
 
 .AppExplore {
 
-
     background-color: rgba(255, 255, 255, 0.7);
 
     .img-cont {
@@ -518,6 +532,7 @@ html {
 
     .l-side {
         width: 70%;
+        
     }
 
     .genSection {
@@ -546,6 +561,24 @@ html {
 
             a {
                 width: fit-content;
+            }
+            .app-dowmload{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                @media screen and (max-width: 767px) {
+                    flex-direction: row;
+                    
+                    a{
+                        width: 100%;
+                        overflow: hidden;
+                        img{
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
             }
 
 

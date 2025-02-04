@@ -4,9 +4,15 @@
 
     .pathHead {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         margin-bottom: 40px;
+
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
 
         h1 {
             color: #141414;
@@ -20,8 +26,8 @@
             padding: 20px 40px;
             color: #FFFAFA;
             border-radius: 5px;
-
-
+            width: 100%;
+            text-align: center;
         }
 
         a:hover {
@@ -155,7 +161,7 @@
                     gap: 15px;
 
                     img {
-                        width: 30%;
+                        width: 100%;
                         aspect-ratio: 1/1;
                         object-fit: cover;
                         border-radius: 10px;
@@ -192,7 +198,8 @@
                 gap: 7px;
                 flex-wrap: nowrap;
                 align-items: center;
-                img{
+
+                img {
                     width: 30px;
                     aspect-ratio: 1/1;
                     object-fit: contain;
@@ -328,6 +335,7 @@
         gap: 10px;
         align-items: flex-start;
         grid-template-columns: repeat(2, 1fr);
+        row-gap: 55px;
 
         .destination {
             display: flex;
@@ -358,6 +366,10 @@
                     font-weight: 700;
                     color: #141414;
                     margin-bottom: 0;
+
+                    @media screen and (max-width: 767px) {
+                        font-size: 16px;
+                    }
                 }
 
                 h3 {
@@ -365,6 +377,10 @@
                     font-weight: 700;
                     color: $main;
                     margin-bottom: 10px;
+
+                    @media screen and (max-width: 767px) {
+                        font-size: 12px;
+                    }
                 }
 
                 p {
@@ -377,18 +393,30 @@
                     -webkit-box-orient: vertical;
                     overflow: hidden;
                     text-overflow: ellipsis;
+
+                    @media screen and (max-width: 767px) {
+                        font-size: 12px;
+                    }
                 }
             }
         }
     }
 
+    .ready-cont {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 30px;
+        overflow: hidden;
+
+    }
+
     .ready {
         display: flex;
         padding: 24px;
-        border-radius: 30px;
         align-items: center;
         flex-direction: column;
-        background-color: rgba(2, 90, 180, 0.2);
+        background-color: rgba(255, 255, 255, 0.4);
 
         h2 {
             font-size: 24px;
@@ -401,7 +429,7 @@
         p {
             font-size: 16px;
             font-weight: 600;
-            color: #4D4D4D;
+            color: #363636;
             margin-bottom: 32px;
             text-align: center;
         }
@@ -499,6 +527,77 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.btn-offer-cont {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    //  if there is offer 
+    flex-direction: column;
+    align-items: flex-end;
+    background-color:rgba(30, 198, 188, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    @media screen and (max-width: 767px) {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+
+    }
+
+    @media screen and (max-width: 500px) {
+        align-items: flex-start;
+        width: 100%;
+    }
+
+}
+
+.uper-header-counter-cont {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    background-color: #025AB4;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #FFFAFA;
+    width: fit-content;
+
+    &:hover {
+        background-color: #1AC5BD;
+        color: #FFFAFA;
+    }
+
+    @media screen and (max-width: 500px) {
+        padding: 10px;
+        width: 100%;
+
+    }
+}
+
+.uper-header-counter {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .days {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        background-color: #1c75ce;
+        padding: 5px 10px;
+        border-radius: 10px;
+        color: #FFFAFA;
+        width: 64px;
+
+        @media screen and (max-width: 500px) {
+            padding: 5px;
+            font-size: 12px;
+            width: 48px;
         }
     }
 }
