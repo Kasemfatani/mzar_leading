@@ -29,7 +29,7 @@ export default function PathInfo(pathData) {
         <h1>{pathData.data.name}</h1>
         <div className="btn-offer-cont">
           <Offer />
-          <Link href={`/book-path?id=${data.id}`} className="book-link">
+          <Link href={`/book`} className="book-link">
             {language === 'en' ? 'Book Now' : 'احجز الان'}
           </Link>
         </div>
