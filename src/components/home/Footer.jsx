@@ -4,10 +4,13 @@ import c from '/public/c.svg'
 import { Facebook, Instagram, Linkedin, Twitter, X, Youtube } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 
 export default function Footer() { // Defining the main functional component named 'Footer'.
     const [language, setLanguage] = useState('en');  // Default language is 'en'
+    const pathname = usePathname()
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             // Define the headers with the selected language
@@ -16,9 +19,14 @@ export default function Footer() { // Defining the main functional component nam
     }, []);
     return (
         <footer className={`${language === 'en' ? 'ltr' : 'rtl'}`}> {/* Main footer container with padding and background color */}
-            <a href="https://wa.me/+966580121025?text=Good%20Morning%20Mzar" className="fixed-what">
-                <i className="fa-brands fa-whatsapp"></i>
-            </a>
+            {
+                pathname != '/path' ?
+
+                    <a href="https://wa.me/+966580121025?text=Good%20Morning%20Mzar" className="fixed-what">
+                        <i className="fa-brands fa-whatsapp"></i>
+                    </a>
+                    : null
+            }
             <div className="container m-auto"> {/* Container for the footer content */}
                 <div className="footer-cont">
                     <div className="copyRight">

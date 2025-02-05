@@ -39,8 +39,6 @@ export default function PathInfo(pathData) {
               <h6>{language === 'en' ? 'Free cancellation' : 'الغاء الحجز مجانا'}</h6>
             </div>
           </div>
-
-
           {/* <p className='desc'>{pathData.data.description}</p> */}
         </div>
         <div className="btn-offer-cont">

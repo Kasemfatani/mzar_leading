@@ -4,7 +4,7 @@ import axios from 'axios';
 // import Example from '../../components/Path/Example';
 import PathInfo from '../../components/Path/PathInfo';
 import Destinations from '../../components/Path/Destinations';
-import { useSearchParams } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import Loading from '../loading';
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [language, setLanguage] = useState('en');  // Default language is 'en'
+  const pathname = usePathname()
 
   useEffect(() => {
     setLoading(true);
@@ -47,6 +48,14 @@ export default function Home() {
       {
         loading ? <Loading /> :
           <div className={language === 'en' ? 'ltr' : 'rtl'}>
+            {
+                pathname == '/path' ?
+
+                    <a href={`https://wa.me/+966580121025?text=hello! I am interested in ${data.name} , i would like to know more about it`} className="fixed-what">
+                        <i className="fa-brands fa-whatsapp"></i>
+                    </a>
+                    : null
+            }
             <PathInfo data={data} lang={language}></PathInfo>
             <Destinations data ={data} lang={language}></Destinations>
             {/* <Example></Example> */}
