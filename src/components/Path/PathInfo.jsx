@@ -24,34 +24,6 @@ export default function PathInfo(pathData) {
 
   return (
     <div className='container m-auto path'>
-
-      <div className="pathHead">
-        <div className="t-title">
-          <div className="t">
-            <h1>{pathData.data.name}</h1>
-            
-            <div className="f-col">
-              <h5>
-                {language === 'en' ? 'Start from' : 'تبدأ من'}
-                <span className="discounted-price">${pathData.data.starting_price.toFixed(2)}</span>
-                {/* {language === 'en' ? ' instead of' : 'بدلاً من '} */}
-                <span className="original-price">${(pathData.data.starting_price * 1.2).toFixed(2)}</span>
-              </h5>
-              <h6>{language === 'en' ? 'Free cancellation' : 'الغاء الحجز مجانا'}</h6>
-            </div>
-          </div>
-          <p className='desc'>{pathData.data.description}</p>
-
-
-          {/* <p className='desc'>{pathData.data.description}</p> */}
-        </div>
-        <div className="btn-offer-cont">
-          <Offer />
-          <Link href={`/book`} className="book-link">
-            {language === 'en' ? 'Book Now' : 'احجز الان'}
-          </Link>
-        </div>
-      </div>
       <div className="pathdata">
         <div className="imgs w-full">
           <div className="imgs-grid">
@@ -112,6 +84,34 @@ export default function PathInfo(pathData) {
           </div>
         </div>
       </div>
+      <div className="pathHead">
+        <div className="t-title">
+          <div className="t">
+            <h1>{pathData.data.name}</h1>
+
+            <div className="f-col">
+              <h5>
+                {language === 'en' ? 'Start from' : 'تبدأ من'}
+                <span className="discounted-price">SAR{pathData.data.starting_price.toFixed(2)}</span>
+                {/* {language === 'en' ? ' instead of' : 'بدلاً من '} */}
+                <span className="original-price">SAR{(pathData.data.starting_price * 1.2).toFixed(2)}</span>
+              </h5>
+              <h6>{language === 'en' ? 'Free cancellation' : 'الغاء الحجز مجانا'}</h6>
+            </div>
+          </div>
+          <p className='desc'>{pathData.data.description}</p>
+
+
+          {/* <p className='desc'>{pathData.data.description}</p> */}
+        </div>
+        <div className="btn-offer-cont">
+          <Offer />
+          <Link href={`/book`} className="book-link">
+            {language === 'en' ? 'Book Now' : 'احجز الان'}
+          </Link>
+        </div>
+      </div>
+
       <div className="facilities-duration">
         <div className="facilities w-full">
           <h3>{language === 'en' ? 'Facilities' : 'تتضمن الرحلة'}</h3>
