@@ -39,7 +39,6 @@ export default function PathInfo(pathData) {
               <h6>{language === 'en' ? 'Free cancellation' : 'الغاء الحجز مجانا'}</h6>
             </div>
           </div>
-          <p className='desc'>{pathData.data.description}</p>
 
 
           {/* <p className='desc'>{pathData.data.description}</p> */}
@@ -78,6 +77,8 @@ export default function PathInfo(pathData) {
               )
             }
           </div>
+          <p className='desc'>{pathData.data.description}</p>
+
         </div>
         <div className="flex flex-col gap-2 ll-siide">
           <div className="auth">

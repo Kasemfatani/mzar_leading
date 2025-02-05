@@ -1905,6 +1905,15 @@ footer .footer-cont .social {
   }
 }
 
+.pathdata .desc {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4D4D4D;
+  margin-bottom: 0;
+  line-height: 30px;
+}
+
 .uper-header-counter {
   width: -moz-fit-content;
   width: fit-content;

@@ -1,7 +1,8 @@
 .path {
     padding-top: 40px;
     padding-bottom: 40px;
-    .ll-siide{
+
+    .ll-siide {
 
         .auth {
             display: flex;
@@ -12,12 +13,14 @@
             background-color: rgba(30, 198, 188, 0.1);
             padding: 10px 20px;
             border-radius: 30px;
-    
+
             color: $main;
+
             @media screen and (max-width: 600px) {
                 width: 100%;
             }
-            h4{
+
+            h4 {
                 font-size: 24px;
                 font-weight: 700;
                 margin-bottom: 0;
@@ -43,30 +46,35 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            .t{
+
+            .t {
                 display: flex;
                 align-items: center;
                 gap: 10px;
                 flex-wrap: wrap;
-                h5{
+
+                h5 {
                     text-wrap: nowrap;
                 }
             }
         }
-        .f-col{
+
+        .f-col {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            h6{
+
+            h6 {
                 padding: 5px;
                 border-radius: 5px;
                 background-color: rgba(30, 198, 188, 0.1);
-                
+
                 // color: $main;
                 font-size: 14px;
                 font-weight: 500;
             }
         }
+
         h1 {
             color: #141414;
             font-size: 48px;
@@ -604,7 +612,7 @@
             a {
                 padding: 10px 20pxf;
             }
-            
+
         }
 
         .pathdata {
@@ -670,6 +678,17 @@
         padding: 10px;
         width: 100%;
 
+    }
+}
+
+.pathdata {
+    .desc {
+        margin-top: 40px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #4D4D4D;
+        margin-bottom: 0;
+        line-height: 30px;
     }
 }
 
