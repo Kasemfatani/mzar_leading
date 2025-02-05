@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { API_BASE_URL } from '@/lib/apiConfig';
-import img2 from '/public/conf/10.svg';
+import img2 from '/public/conf/10.png';
 
 
 import Marquee from '../ui/marquee';

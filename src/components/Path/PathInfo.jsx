@@ -6,7 +6,7 @@ import { Fancybox } from "@fancyapps/ui";
 import { motion } from 'framer-motion'; // Importing the motion component from Framer Motion for animations
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import img1 from '/public/Thaw.jpg';
-import img2 from '/public/conf/10.svg';
+import img2 from '/public/conf/10.png';
 
 import Offer from './Offer';
 export default function PathInfo(pathData) {
