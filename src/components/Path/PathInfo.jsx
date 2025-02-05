@@ -77,14 +77,15 @@ export default function PathInfo(pathData) {
               )
             }
           </div>
-          <p className='desc'>{pathData.data.description}</p>
-
-        </div>
-        <div className="flex flex-col gap-2 ll-siide">
           <div className="auth">
             <h4>{language === 'en' ? 'Autorized by' : 'معتمد من'} </h4>
             <Image src={img2} alt="Mazar" width={200} height={200}></Image>
           </div>
+          <p className='desc'>{pathData.data.description}</p>
+
+        </div>
+        <div className="flex flex-col gap-2 ll-siide">
+
           <div className="places w-full">
             <h4>{language === 'en' ? 'During the trip' : 'خلال الرحلة'}</h4>
             <p>{language === 'en' ? 'See the trip content and places you will visit' : 'شاهد محتوى الرحلة والأماكن التي ستزورها'}</p>
