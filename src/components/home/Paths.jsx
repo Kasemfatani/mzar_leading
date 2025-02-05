@@ -9,6 +9,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { API_BASE_URL } from '@/lib/apiConfig';
+import img2 from '/public/conf/10.svg';
+
 
 import Marquee from '../ui/marquee';
 import { cn } from '@/lib/utils';
@@ -105,6 +107,17 @@ export default function Paths() {
                         <SwiperSlide key={path.id}>
                             <div className="path-card">
                                 <div className="img-cont">
+                                    <div className="overlay">
+                                        <div className="auth">
+                                            <h4>{language === 'en' ? 'Autorized by' : 'معتمد من'} </h4>
+                                            <Image src={img2} alt="Mazar" width={100} height={100} />
+                                        </div>
+                                        {
+                                            path.most_ordered ?
+                                            <div className="most-ordered">{language === 'en' ? 'Most Ordered' : 'الاكثر طلبا'} </div> : null
+                                        }
+                                        
+                                    </div>
                                     <Image
                                         src={path.cover}
                                         alt="Mazar"
@@ -112,44 +125,13 @@ export default function Paths() {
                                         width={300}
                                         height={300}
                                     />
-                                    <div className="duration">{path.duration}</div>
+
                                 </div>
                                 <h3 className={`${language === 'ar' ? 'rtl' : 'ltr'}`}>{path.name}</h3>
+                                <div className={`${language === 'ar' ? 'rtl path-duration' : 'path-duration ltr'}`}>{language === 'en' ? 'Duration' : 'مدة الرحلة'} : {path.duration}</div>
                                 <p className={`${language === 'ar' ? 'rtl' : 'ltr'}`}>{path.short_description}</p>
                                 <div className="small-imgs-slider w-full" dir='ltr'>
-                                    {/* <Swiper
-                                        // navigation
-                                        // pagination={{ type: "bullets", clickable: true }}
-                                        dir='ltr'
-                                        spaceBetween={14}
-                                        slidesPerView={4}
-                                        autoplay={true}
-                                        loop={true}
-                                        modules={[Autoplay, Navigation, Pagination]}
 
-                                        breakpoints={{
-
-                                            640: {
-                                                slidesPerView: 4,
-                                                autoplay: false,
-                                            },
-                                            100: {
-                                                slidesPerView: 3,
-                                                autoplay: false,
-                                            }
-                                        }}
-                                    >
-                                        {path.locations.map((location, index) =>
-                                            <SwiperSlide key={index}>
-                                                <div className="small-swiper-img-name">
-                                                    <div className="samll-img-cont">
-                                                        <Image src={location.cover} alt="Mazar" width={100} height={100} />
-                                                    </div>
-                                                    <h6> {location.name}  </h6>
-                                                </div>
-                                            </SwiperSlide>
-                                        )}
-                                    </Swiper> */}
                                     <Marquee reverse pauseOnHover className="[--duration:20s]">
                                         {path.locations.map((review, index) => (
                                             <ReviewCard key={index} {...review} />

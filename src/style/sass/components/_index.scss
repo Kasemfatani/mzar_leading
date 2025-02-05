@@ -1,13 +1,16 @@
 .hero {
     margin-bottom: 47px;
     height: calc(100vh - 92px);
-    .img-banner{
+
+    .img-banner {
         width: 100%;
         object-fit: cover;
     }
-    .relative{
+
+    .relative {
         height: 100%;
     }
+
     .img-cont {
         width: 100%;
         // aspect-ratio: 1200/576;
@@ -28,6 +31,7 @@
         padding-top: 56px;
         padding-bottom: 56px;
         height: 100%;
+
         .welcome {
             display: flex;
             align-items: center;
@@ -44,7 +48,7 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            
+
             h1 {
                 max-width: 450px;
                 font-size: 56px;
@@ -101,7 +105,8 @@
                     font-weight: 700;
                     margin-bottom: 0;
                 }
-                img{
+
+                img {
                     width: 50px;
                     height: 50px
                 }
@@ -113,15 +118,19 @@
         }
     }
 }
-p{
+
+p {
     text-align: justify;
 }
-.rtl{
+
+.rtl {
     direction: rtl;
 }
-.ltr{
+
+.ltr {
     direction: ltr;
 }
+
 * {
     transition: all 0.3s ease-in-out;
 }
@@ -169,6 +178,22 @@ html {
             margin-bottom: 16px;
             position: relative;
 
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding: 12px;
+                display: flex;
+                // flex-direction: column;
+                justify-content: space-between;
+                gap: 10px;
+                div{
+                    height: fit-content;
+                }
+            }
+
             img {
                 width: 100%;
                 height: 100%;
@@ -176,10 +201,9 @@ html {
                 border-radius: 8px;
             }
 
-            .duration {
-                position: absolute;
-                top: 12px;
-                inset-inline-start: 12px;
+            .duration,
+            .most-ordered {
+
                 border-radius: 8px;
                 padding: 10px;
                 margin: 0;
@@ -187,6 +211,44 @@ html {
                 color: $white;
                 font-size: 12px;
                 font-weight: 500;
+                width: fit-content;
+
+            }
+
+            .duration {
+                background-color: #1AC5BD;
+            }
+
+            .auth {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background-color: #e63946;
+                border-radius: 8px;
+                padding: 4px 10px 4px 4px;
+                margin: 0;
+                color: $white;
+                font-size: 12px;
+                font-weight: 500;
+                width: fit-content;
+                text-wrap: nowrap;
+
+                &:hover {
+                    img {
+                        transform: scale(1.6);
+                    }
+                }
+
+                img {
+                    height: 45px;
+                    border-radius: 5px;
+                    background-color: #ffe6e6;
+                    transform: scale(1);
+
+                    &:hover {
+                        transform: scale(1.6);
+                    }
+                }
 
             }
         }
@@ -196,6 +258,13 @@ html {
             font-weight: 700;
             margin-bottom: 16px;
             color: #333;
+        }
+
+        .path-duration {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #666;
         }
 
         p {
@@ -226,9 +295,10 @@ html {
                 padding: 8px;
                 border-radius: 8px;
                 background-color: $white;
-                margin:0 10px;
+                margin: 0 10px;
                 width: 90px;
                 height: 100%;
+
                 h6 {
                     color: #080808;
                     font-size: 14px;
@@ -283,41 +353,43 @@ html {
         padding: 24px 10px;
     }
 }
+
 .loading-page {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 322px);
-  
+
     img {
-      max-width: 100px;
-      max-height: 100px;
-      width: auto;
+        max-width: 100px;
+        max-height: 100px;
+        width: auto;
     }
-  
+
     // background-color: $main;
-  }
-  
-  .loading-logo {
+}
+
+.loading-logo {
     animation-name: loading;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation: loading 1s ease infinite;
-  }
-  
-  @keyframes loading {
+}
+
+@keyframes loading {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-  
+
     50% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
+
 .about-section {
     background-color: #E2E9F0;
     padding-top: 40px;
@@ -390,7 +462,8 @@ html {
                 width: 100%;
                 height: auto;
             }
-            iframe{
+
+            iframe {
                 width: 100%;
                 border-radius: 25px;
                 aspect-ratio: 560/315;
@@ -442,22 +515,27 @@ html {
 
     }
 }
+
 @-webkit-keyframes dance {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-11deg);
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-11deg);
+    }
 }
+
 @keyframes dance {
     0% {
         transform: rotate(0deg);
-      }
-      100% {
+    }
+
+    100% {
         transform: rotate(-11deg);
-      }
+    }
 }
+
 .genGeb {
     background-color: #fff;
 
@@ -532,7 +610,7 @@ html {
 
     .l-side {
         width: 70%;
-        
+
     }
 
     .genSection {
@@ -562,17 +640,20 @@ html {
             a {
                 width: fit-content;
             }
-            .app-dowmload{
+
+            .app-dowmload {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+
                 @media screen and (max-width: 767px) {
                     flex-direction: row;
-                    
-                    a{
+
+                    a {
                         width: 100%;
                         overflow: hidden;
-                        img{
+
+                        img {
                             height: 100%;
                             width: 100%;
                             object-fit: cover;
@@ -623,10 +704,12 @@ footer {
         justify-content: space-between;
         border-top: 1px solid $main;
         padding-top: 32px;
-        i{
+
+        i {
             font-size: 24px;
             color: #025AB4;
         }
+
         .copyRight {
             display: flex;
             align-items: center;
@@ -677,15 +760,18 @@ footer {
 }
 
 @media (max-width: 767px) {
-    .genGeb .genSection{
+    .genGeb .genSection {
         padding: 20px;
-        .l-side{
+
+        .l-side {
             width: 100%;
         }
-        .img-cont{
+
+        .img-cont {
             width: 100%;
         }
     }
+
     .hero {
         .overlay {
             .features {
@@ -794,6 +880,7 @@ footer {
             padding: 10px 8px;
             border-radius: 8px;
             box-shadow: 0px 0px 7px rgba(50, 50, 50, 0.27);
+
             .small-imgs-slider {
                 .small-swiper-img-name {
                     padding: 4px;
@@ -813,83 +900,83 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  #container {
+}
+
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-  }
-  
-  #h3 {
+}
+
+#h3 {
     color: white;
-  }
-  
-  #ring {
+}
+
+#ring {
     width: 190px;
     height: 190px;
     border: 1px solid transparent;
     border-radius: 50%;
     position: absolute;
-  }
-  
-  #ring:nth-child(1) {
+}
+
+#ring:nth-child(1) {
     border-bottom: 8px solid rgb(255, 141, 249);
     animation: rotate1 2s linear infinite;
-  }
-  
-  @keyframes rotate1 {
+}
+
+@keyframes rotate1 {
     from {
-      transform: rotateX(50deg) rotateZ(110deg);
+        transform: rotateX(50deg) rotateZ(110deg);
     }
-  
+
     to {
-      transform: rotateX(50deg) rotateZ(470deg);
+        transform: rotateX(50deg) rotateZ(470deg);
     }
-  }
-  
-  #ring:nth-child(2) {
-    border-bottom: 8px solid rgb(255,65,106);
+}
+
+#ring:nth-child(2) {
+    border-bottom: 8px solid rgb(255, 65, 106);
     animation: rotate2 2s linear infinite;
-  }
-  
-  @keyframes rotate2 {
+}
+
+@keyframes rotate2 {
     from {
-      transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+        transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
     }
-  
+
     to {
-      transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+        transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
     }
-  }
-  
-  #ring:nth-child(3) {
-    border-bottom: 8px solid rgb(0,255,255);
+}
+
+#ring:nth-child(3) {
+    border-bottom: 8px solid rgb(0, 255, 255);
     animation: rotate3 2s linear infinite;
-  }
-  
-  @keyframes rotate3 {
+}
+
+@keyframes rotate3 {
     from {
-      transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+        transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
     }
-  
+
     to {
-      transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+        transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
     }
-  }
-  
-  #ring:nth-child(4) {
+}
+
+#ring:nth-child(4) {
     border-bottom: 8px solid rgb(252, 183, 55);
     animation: rotate4 2s linear infinite;
-  }
-  
-  @keyframes rotate4 {
+}
+
+@keyframes rotate4 {
     from {
-      transform: rotateX(70deg) rotateZ(270deg);
+        transform: rotateX(70deg) rotateZ(270deg);
     }
-  
+
     to {
-      transform: rotateX(70deg) rotateZ(630deg);
+        transform: rotateX(70deg) rotateZ(630deg);
     }
-  }
+}

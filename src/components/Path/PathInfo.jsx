@@ -6,6 +6,7 @@ import { Fancybox } from "@fancyapps/ui";
 import { motion } from 'framer-motion'; // Importing the motion component from Framer Motion for animations
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import img1 from '/public/Thaw.jpg';
+import img2 from '/public/conf/10.svg';
 
 import Offer from './Offer';
 export default function PathInfo(pathData) {
@@ -21,14 +22,28 @@ export default function PathInfo(pathData) {
     }
   }, []);
 
-
   return (
     <div className='container m-auto path'>
 
       <div className="pathHead">
-        <div className="title">
-          <h1>{pathData.data.name}</h1>
-          <p className='main-description'>{pathData.data.description}</p>
+        <div className="t-title">
+          <div className="t">
+            <h1>{pathData.data.name}</h1>
+            
+            <div className="f-col">
+              <h5>
+                {language === 'en' ? 'Start from' : 'تبدأ من'}
+                <span className="discounted-price">${pathData.data.starting_price.toFixed(2)}</span>
+                {/* {language === 'en' ? ' instead of' : 'بدلاً من '} */}
+                <span className="original-price">${(pathData.data.starting_price * 1.2).toFixed(2)}</span>
+              </h5>
+              <h6>{language === 'en' ? 'Free cancellation' : 'الغاء الحجز مجانا'}</h6>
+            </div>
+          </div>
+          <p className='desc'>{pathData.data.description}</p>
+
+
+          {/* <p className='desc'>{pathData.data.description}</p> */}
         </div>
         <div className="btn-offer-cont">
           <Offer />
@@ -65,29 +80,35 @@ export default function PathInfo(pathData) {
             }
           </div>
         </div>
-        <div className="places w-full">
-          <h4>{language === 'en' ? 'During the trip' : 'خلال الرحلة'}</h4>
-          <p>{language === 'en' ? 'See the trip content and places you will visit' : 'شاهد محتوى الرحلة والأماكن التي ستزورها'}</p>
-          <div className="places-grid">
-            {
-              data.locations.map((img, index) =>
-                <motion.div
-                  initial={{ opacity: 0, y: -100 }} // Initial animation state (faded and shifted left)
-                  whileInView={{ opacity: 1, y: 0 }} // Animation state when in view (fully visible and reset position)
-                  viewport={{ once: true, amount: 0.8 }}
-                  transition={{
-                    delay: index * 0.2,
-                    type: 'spring', // Using spring animation for smooth motion
-                    bounce: 0.2, // Small bounce effect for the animation
-                    duration: .3, // Duration of the animation
-                  }}
-                  key={index}
-                  className="place-cont" >
-                  <Image src={img.cover} alt="Mazar" width={200} height={200} />
-                  <p>{img.name}</p>
-                </motion.div>
-              )
-            }
+        <div className="flex flex-col gap-2 ll-siide">
+          <div className="auth">
+            <h4>{language === 'en' ? 'Autorized by' : 'معتمد من'} </h4>
+            <Image src={img2} alt="Mazar" width={200} height={200}></Image>
+          </div>
+          <div className="places w-full">
+            <h4>{language === 'en' ? 'During the trip' : 'خلال الرحلة'}</h4>
+            <p>{language === 'en' ? 'See the trip content and places you will visit' : 'شاهد محتوى الرحلة والأماكن التي ستزورها'}</p>
+            <div className="places-grid">
+              {
+                data.locations.map((img, index) =>
+                  <motion.div
+                    initial={{ opacity: 0, y: -100 }} // Initial animation state (faded and shifted left)
+                    whileInView={{ opacity: 1, y: 0 }} // Animation state when in view (fully visible and reset position)
+                    viewport={{ once: true, amount: 0.8 }}
+                    transition={{
+                      delay: index * 0.2,
+                      type: 'spring', // Using spring animation for smooth motion
+                      bounce: 0.2, // Small bounce effect for the animation
+                      duration: .3, // Duration of the animation
+                    }}
+                    key={index}
+                    className="place-cont" >
+                    <Image src={img.cover} alt="Mazar" width={200} height={200} />
+                    <p>{img.name}</p>
+                  </motion.div>
+                )
+              }
+            </div>
           </div>
         </div>
       </div>

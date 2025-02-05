@@ -690,6 +690,21 @@ html {
   margin-bottom: 16px;
   position: relative;
 }
+.paths .path-card .img-cont .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.paths .path-card .img-cont .overlay div {
+  height: -moz-fit-content;
+  height: fit-content;
+}
 .paths .path-card .img-cont img {
   width: 100%;
   height: 100%;
@@ -697,10 +712,8 @@ html {
      object-fit: cover;
   border-radius: 8px;
 }
-.paths .path-card .img-cont .duration {
-  position: absolute;
-  top: 12px;
-  inset-inline-start: 12px;
+.paths .path-card .img-cont .duration,
+.paths .path-card .img-cont .most-ordered {
   border-radius: 8px;
   padding: 10px;
   margin: 0;
@@ -708,12 +721,50 @@ html {
   color: var(--white-color);
   font-size: 12px;
   font-weight: 500;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.paths .path-card .img-cont .duration {
+  background-color: #1AC5BD;
+}
+.paths .path-card .img-cont .auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #e63946;
+  border-radius: 8px;
+  padding: 4px 10px 4px 4px;
+  margin: 0;
+  color: var(--white-color);
+  font-size: 12px;
+  font-weight: 500;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-wrap: nowrap;
+}
+.paths .path-card .img-cont .auth:hover img {
+  transform: scale(1.6);
+}
+.paths .path-card .img-cont .auth img {
+  height: 45px;
+  border-radius: 5px;
+  background-color: #ffe6e6;
+  transform: scale(1);
+}
+.paths .path-card .img-cont .auth img:hover {
+  transform: scale(1.6);
 }
 .paths .path-card h3 {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 16px;
   color: #333;
+}
+.paths .path-card .path-duration {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #666;
 }
 .paths .path-card p {
   font-size: 16px;
@@ -1279,25 +1330,65 @@ footer .footer-cont .social {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+.path .ll-siide .auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background-color: rgba(30, 198, 188, 0.1);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: var(--main-color);
+}
+@media screen and (max-width: 600px) {
+  .path .ll-siide .auth {
+    width: 100%;
+  }
+}
+.path .ll-siide .auth h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
 .path .pathHead {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 40px;
-  gap: 20px;
+  gap: 30px;
 }
-.path .pathHead .main-description {
-  font-size: 16px;
-  font-weight: 400;
-  color: #141414;
-  line-height: 31px;
-}
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .path .pathHead {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
+}
+.path .pathHead .t-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.path .pathHead .t-title .t {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.path .pathHead .t-title .t h5 {
+  text-wrap: nowrap;
+}
+.path .pathHead .f-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.path .pathHead .f-col h6 {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgba(30, 198, 188, 0.1);
+  font-size: 14px;
+  font-weight: 500;
 }
 .path .pathHead h1 {
   color: #141414;
@@ -1312,6 +1403,42 @@ footer .footer-cont .social {
   border-radius: 5px;
   width: 100%;
   text-align: center;
+}
+.path .pathHead h5 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.path .pathHead .original-price {
+  text-decoration: line-through;
+  /* Adds a strikethrough */
+  color: #888;
+  /* Makes it gray to de-emphasize */
+  margin-right: 10px;
+  /* Adds space between the prices */
+  font-size: 0.9em;
+  /* Slightly smaller font */
+}
+.path .pathHead .discounted-price {
+  color: var(--main-color);
+  /* Bright red to grab attention */
+  font-weight: bold;
+  /* Makes it bold */
+  font-size: 1.2em;
+  /* Slightly larger font */
+  background-color: #ffe6e6;
+  /* Light red background */
+  padding: 2px 6px;
+  /* Adds padding around the price */
+  border-radius: 4px;
+  /* Softens the background with rounded corners */
+}
+.path .pathHead .desc {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4D4D4D;
+  margin-bottom: 0;
+  line-height: 30px;
 }
 .path .pathHead a:hover {
   background-color: var(--sec-color);

@@ -1,26 +1,72 @@
 .path {
     padding-top: 40px;
     padding-bottom: 40px;
+    .ll-siide{
+
+        .auth {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            // width: fit-content;
+            background-color: rgba(30, 198, 188, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+    
+            color: $main;
+            @media screen and (max-width: 600px) {
+                width: 100%;
+            }
+            h4{
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 0;
+            }
+        }
+    }
 
     .pathHead {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
         margin-bottom: 40px;
-        gap: 20px;
-        .main-description{
-            font-size: 16px;
-            font-weight: 400;
-            color: #141414;
-            line-height: 31px;
-        }
+        gap: 30px;
 
-        @media screen and (max-width: 500px) {
+
+        @media screen and (max-width: 600px) {
             flex-direction: column;
             align-items: flex-start;
             gap: 20px;
         }
 
+        .t-title {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .t{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: wrap;
+                h5{
+                    text-wrap: nowrap;
+                }
+            }
+        }
+        .f-col{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            h6{
+                padding: 5px;
+                border-radius: 5px;
+                background-color: rgba(30, 198, 188, 0.1);
+                
+                // color: $main;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
         h1 {
             color: #141414;
             font-size: 48px;
@@ -37,6 +83,46 @@
             text-align: center;
         }
 
+        h5 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            /* Adds a strikethrough */
+            color: #888;
+            /* Makes it gray to de-emphasize */
+            margin-right: 10px;
+            /* Adds space between the prices */
+            font-size: 0.9em;
+            /* Slightly smaller font */
+        }
+
+        .discounted-price {
+            color: $main;
+            /* Bright red to grab attention */
+            font-weight: bold;
+            /* Makes it bold */
+            font-size: 1.2em;
+            /* Slightly larger font */
+            background-color: #ffe6e6;
+            /* Light red background */
+            padding: 2px 6px;
+            /* Adds padding around the price */
+            border-radius: 4px;
+            /* Softens the background with rounded corners */
+        }
+
+        .desc {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4D4D4D;
+            margin-bottom: 0;
+            line-height: 30px;
+        }
+
         a:hover {
             background-color: $sec;
             color: #FFFAFA;
@@ -47,6 +133,7 @@
         display: flex;
         gap: 22px;
         margin-bottom: 40px;
+
 
         .imgs-grid {
             display: grid;
@@ -517,6 +604,7 @@
             a {
                 padding: 10px 20pxf;
             }
+            
         }
 
         .pathdata {
@@ -545,9 +633,10 @@
     //  if there is offer 
     flex-direction: column;
     align-items: flex-end;
-    background-color:rgba(30, 198, 188, 0.1);
+    background-color: rgba(30, 198, 188, 0.1);
     padding: 15px;
     border-radius: 5px;
+
     @media screen and (max-width: 767px) {
         flex-direction: column-reverse;
         align-items: flex-end;
