@@ -108,10 +108,10 @@ export default function Paths() {
                             <div className="path-card">
                                 <div className="img-cont">
                                     <div className="overlay">
-                                        <div className="auth">
+                                        {/* <div className="auth">
                                             <h4>{language === 'en' ? 'Autorized by' : 'معتمد من'} </h4>
                                             <Image src={img2} alt="Mazar" width={100} height={100} />
-                                        </div>
+                                        </div> */}
                                         {
                                             path.most_ordered ?
                                             <div className="most-ordered">{language === 'en' ? 'Most Ordered' : 'الاكثر طلبا'} </div> : null
