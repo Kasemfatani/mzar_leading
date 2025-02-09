@@ -6,6 +6,7 @@ import About from '../components/home/About';
 import GenSection from '../components/home/GenSection';
 import AppExplore from '../components/home/AppExplore';
 import Explore from '../components/home/Explore';
+import Latest from '../components/home/Latest';
 
 export default function Home() {
   const [lang, setLang] = useState('en');
@@ -30,6 +31,7 @@ export default function Home() {
       <About></About>
       <GenSection/>
       <AppExplore/>
+      <Latest/>
     </main>
   );
 }

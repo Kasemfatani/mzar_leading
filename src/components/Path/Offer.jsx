@@ -44,20 +44,23 @@ export default function Offer() {
 
     return (
         <div className="uper-header-counter-cont">
-            <span>{language === 'en' ? 'Book Now And Get 20% Off' : 'احجز الان واحصل على خصم 20٪'}</span>
+            <span className='ohsol-span'>{language === 'en' ? 'Book Now And Get 20% Off' : 'احجز الان واحصل على خصم 20٪'}</span>
             <div className="uper-header-counter">
                 <div className="days">
                     <span>{timeLeft.days}</span>
                     <p>{language === 'en' ? 'Days' : 'أيام'}</p>
                 </div>
+                <span className='nokteten'>:</span>
                 <div className="days">
                     <span>{timeLeft.hours}</span>
                     <p>{language === 'en' ? 'Hours' : 'ساعات'}</p>
                 </div>
+                <span className='nokteten'>:</span>
                 <div className="days">
                     <span>{timeLeft.minutes}</span>
                     <p>{language === 'en' ? 'Minutes' : 'دقائق'}</p>
                 </div>
+                <span className='nokteten'>:</span>
                 <div className="days">
                     <span>{timeLeft.seconds}</span>
                     <p>{language === 'en' ? 'Seconds' : 'ثواني'}</p>

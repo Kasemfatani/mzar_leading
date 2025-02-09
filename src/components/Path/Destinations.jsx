@@ -12,12 +12,6 @@ export default function PathInfo(pathData) {
     let destinations = data.locations
     let [destinationsCopy, setDestinationsCopy] = useState(destinations.slice(0, 4));
     
-    // setDestinationsCopy(destinations.slice(0, 4));
-    // if (destinations.length > 4) {
-    // }
-    // else {
-    //     setDestinationsCopy([...destinations]);
-    // }
     useEffect(() => {
         if (typeof window !== 'undefined') {
             setLanguage(localStorage.getItem('lang'));
@@ -45,39 +39,6 @@ export default function PathInfo(pathData) {
                         </div>
                     )
                 }
-                {/* <div className="destination">
-                    <div className="img-cont">
-                        <Image src={img1} alt="Mazar"></Image>
-                    </div>
-                    <div className="text">
-                        <h2>Mount Thawr</h2>
-                        <h3>Stay Duration: 20 minutes</h3>
-                        <p>Mount Thawr is the mountain that shelters the cave where the Messenger of Allah, peace and blessings be upon him, and his companion took refuge on their migration journey to Medina. It stands as a witness to the great migration story in our Islamic history, along with other stories we share with you during the visit.</p>
-
-                    </div>
-                </div>
-                <div className="destination">
-                    <div className="img-cont">
-                        <Image src={img1} alt="Mazar"></Image>
-                    </div>
-                    <div className="text">
-                        <h2>Mount Thawr</h2>
-                        <h3>Stay Duration: 20 minutes</h3>
-                        <p>Mount Thawr is the mountain that shelters the cave where the Messenger of Allah, peace and blessings be upon him, and his companion took refuge on their migration journey to Medina. It stands as a witness to the great migration story in our Islamic history, along with other stories we share with you during the visit.</p>
-
-                    </div>
-                </div>
-                <div className="destination">
-                    <div className="img-cont">
-                        <Image src={img1} alt="Mazar"></Image>
-                    </div>
-                    <div className="text">
-                        <h2>Mount Thawr</h2>
-                        <h3>Stay Duration: 20 minutes</h3>
-                        <p>Mount Thawr is the mountain that shelters the cave where the Messenger of Allah, peace and blessings be upon him, and his companion took refuge on their migration journey to Medina. It stands as a witness to the great migration story in our Islamic history, along with other stories we share with you during the visit.</p>
-
-                    </div>
-                </div> */}
                 <h2 className='show-more' style={{ display: destinations.length > destinationsCopy.length ? 'block' : 'none' }} onClick={() => setDestinationsCopy([...destinations])}>{language === 'en' ? 'Show More' : 'اظهار المزيد'}</h2>
             </div>
 
