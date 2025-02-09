@@ -4,6 +4,7 @@ import axios from 'axios';
 // import Example from '../../components/Path/Example';
 import PathInfo from '../../components/Path/PathInfo';
 import Destinations from '../../components/Path/Destinations';
+import Riviews from '../../components/Path/Riviews';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import Loading from '../loading';
 import { API_BASE_URL } from '@/lib/apiConfig';
@@ -68,6 +69,7 @@ export default function Home() {
             }
             <PathInfo data={data} lang={language}></PathInfo>
             <Destinations data={data} lang={language}></Destinations>
+            <Riviews id={pathId} lang={language}></Riviews>
             {/* <Example></Example> */}
           </div>
       }
