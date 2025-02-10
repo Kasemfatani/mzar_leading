@@ -116,9 +116,9 @@ export default function PathInfo(pathData) {
                 <span className="from">{language === 'en' ? 'From' : 'من'}</span>
                 <h5>
                   {/* {language === 'en' ? 'Start from' : 'تبدأ من'} */}
-                  <span className="discounted-price">${pathData.data.starting_price.toFixed(2)}</span>
+                  <span className="discounted-price">SAR{pathData.data.starting_price.toFixed(2)}</span>
                   {/* {language === 'en' ? ' instead of' : 'بدلاً من '} */}
-                  <span className="original-price">${(pathData.data.starting_price * 1.2).toFixed(2)}</span>
+                  <span className="original-price">SAR{(pathData.data.starting_price * 1.2).toFixed(2)}</span>
                 </h5>
                 <span>{language === 'en' ? 'Per group up to 4 persons ' : 'لكل مجموعة حتى 4 شخص'}</span>
               </div>
