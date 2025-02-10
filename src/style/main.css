@@ -2205,6 +2205,7 @@ footer .footer-cont .social {
 @media screen and (max-width: 500px) {
   .reviews-swiper .swiper-button-next, .reviews-swiper .swiper-button-prev {
     font-size: 16px;
+    display: none;
   }
 }
 .reviews-swiper .swiper-button-prev:after, .reviews-swiper .swiper-button-next:after {
@@ -2223,6 +2224,7 @@ footer .footer-cont .social {
 @media screen and (max-width: 500px) {
   .reviews-swiper .review-cont {
     padding: 10px 10px;
+    margin-bottom: 50px;
   }
 }
 .reviews-swiper .review-cont h4 {
