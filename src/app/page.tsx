@@ -31,7 +31,7 @@ export default function Home() {
       <About></About>
       <GenSection/>
       <AppExplore/>
-      {/* <Latest/> */}
+      <Latest/>
     </main>
   );
 }

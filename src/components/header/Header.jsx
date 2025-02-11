@@ -28,7 +28,7 @@ export default function Header() {
           <Link href="/" className={pathname === '/' ? 'active' : 'normal-Link'}>{lang === 'en' ? 'Home' : 'الرئيسية'}</Link>
           <Link href="/#paths" className={pathname === '/#paths' ? 'active' : 'normal-Link'}>{lang === 'en' ? 'Paths' : 'المسارات'}</Link>
           <Link href="/#about" className={pathname === '/#about' ? 'active' : 'normal-Link'}>{lang === 'en' ? 'About' : 'من نحن'}</Link>
-
+          <Link href="/all-news" className={pathname === '/all-news' ? 'active' : 'normal-Link'}>{lang === 'en' ? 'News' : 'الاخبار'}</Link>
           <Link href="/book" className='book-link' >{lang === 'en' ? 'Book now' : 'احجز الان'}</Link>
         </div>
 
@@ -52,6 +52,7 @@ export default function Header() {
             <Link href="/">{lang === 'en' ? 'Home' : 'الرئيسية'}</Link>
             <Link href="/#paths">{lang === 'en' ? 'Paths' : 'المسارات'}</Link>
             <Link href="/#about">{lang === 'en' ? 'About' : 'من نحن'}</Link>
+            <Link href="/all-news" className={pathname === '/all-news' ? 'active' : 'normal-Link'}>{lang === 'en' ? 'News' : 'الاخبار'}</Link>
             {/* <div className="lang-btn" onClick={
             () => {
               if (lang === 'en') {

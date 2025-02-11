@@ -7,23 +7,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import img1 from '/public/mecca.jpg';
 import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
 import Loading from '@/app/loading';
 export default function Latest() {
 
     const [language, setLanguage] = useState('en');  // Default language is 'en'
-
-    let news = [
-        { id: 1, img: img1, title: 'About umrah and hajj', titleAr: 'عن العمرة والحج', descripition: 'About umrah and hajj About umrah and hajjAbout umrah and hajj....', descriptionAr: "عن العمرة والحج عن العمرة والحج عن العمرة والحج عن العمرة والحج" },
-        { id: 3, img: img1, title: 'About umrah and hajj', titleAr: 'عن العمرة والحج', descripition: 'About umrah and hajj About umrah and hajjAbout umrah and hajj....', descriptionAr: "عن العمرة والحج عن العمرة والحج عن العمرة والحج عن العمرة والحج" },
-        { id: 2, img: img1, title: 'About umrah and hajj', titleAr: 'عن العمرة والحج', descripition: 'About umrah and hajj About umrah and hajjAbout umrah and hajj....', descriptionAr: "عن العمرة والحج عن العمرة والحج عن العمرة والحج عن العمرة والحج" },
-        { id: 4, img: img1, title: 'About umrah and hajj', titleAr: 'عن العمرة والحج', descripition: 'About umrah and hajj About umrah and hajjAbout umrah and hajj....', descriptionAr: "عن العمرة والحج عن العمرة والحج عن العمرة والحج عن العمرة والحج" },
-        { id: 5, img: img1, title: 'About umrah and hajj', titleAr: 'عن العمرة والحج', descripition: 'About umrah and hajj About umrah and hajjAbout umrah and hajj....', descriptionAr: "عن العمرة والحج عن العمرة والحج عن العمرة والحج عن العمرة والحج" },
-    ]
-
-
     const [loading, setLoading] = useState(true); // State for loading indicator
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
@@ -51,9 +40,6 @@ export default function Latest() {
                 });
         }
     }, []);  // Run this effect whenever the `language` changes
-    console.log(data);
-
-
     return (
         <>
             {
@@ -107,13 +93,16 @@ export default function Latest() {
                                                             <div className="img-cont">
                                                                 <Image src={path.image} width={200} height={200} alt="Mazar" />
                                                                 {/* <div className="overlay">
-                                                                        <div className="padge">
-                                                                            <span>{language === 'en' ? 'New' : 'جديد'}</span>
-                                                                        </div>
-                                                                    </div> */}
+                                                                    <div className="padge">
+                                                                        <span>{language === 'en' ? 'New' : 'جديد'}</span>
+                                                                    </div>
+                                                                </div> */}
                                                             </div>
                                                             <h4>{path.title}</h4>
                                                             <p>{path.description}</p>
+
+
+
                                                         </Link>
                                                     </SwiperSlide>
                                                 )}

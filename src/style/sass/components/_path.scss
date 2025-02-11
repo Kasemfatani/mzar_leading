@@ -1064,52 +1064,66 @@
     font-size: 40px;
     color: #141414;
     margin-bottom: 0px;
+
     @media screen and (max-width: 500px) {
         font-size: 24px;
     }
 
 }
-.reviews-swiper{
+
+.reviews-swiper {
     padding: 20px 30px 0;
     overflow: hidden;
-    .flag-country{
+
+    .flag-country {
         width: 30px;
         height: auto;
         margin-inline-start: 10px;
-        img{
+
+        img {
             width: 100%;
 
         }
     }
-    .swiper-slide{
+
+    .swiper-slide {
         height: auto;
     }
-    .swiper{
+
+    .swiper {
         overflow: visible;
     }
-    .swiper-button-next{
+
+    .swiper-button-next {
         inset-inline-end: -30px;
     }
-    .swiper-button-prev{
+
+    .swiper-button-prev {
         inset-inline-start: -30px;
     }
-    .swiper-button-next , .swiper-button-prev{
+
+    .swiper-button-next,
+    .swiper-button-prev {
         background-color: $main;
-        
+
         width: 48px;
         height: 48px;
         border-radius: 50%;
+
         @media screen and (max-width: 500px) {
             font-size: 16px;
             display: none;
         }
-        
+
     }
-    .swiper-button-prev:after, .swiper-button-next:after{
+
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
         color: $white;
         font-size: 14px;
     }
-    .review-cont{
+
+    .review-cont {
         padding: 16px 14px;
         background-color: #F6F6F6;
         border-radius: 16px;
@@ -1117,45 +1131,75 @@
         box-shadow: 0px 0px 14px rgba(50, 50, 50, 0.17);
         margin-bottom: 16px;
         height: 100%;
+
         @media screen and (max-width: 500px) {
             padding: 10px 10px;
             margin-bottom: 50px;
         }
-        h4{
+
+        h4 {
             font-weight: 700;
             font-size: 20px;
             color: $main;
             display: flex;
             margin-bottom: 0;
-            p{
+
+            p {
                 margin: 0;
             }
         }
-        .title{
+
+        .title {
             display: flex;
             align-items: center;
             margin-bottom: 16px;
             gap: 10px;
-            img{
+
+            img {
                 width: 30px;
             }
         }
-        .stars{
+
+        .stars {
             display: flex;
             gap: 5px;
             margin-bottom: 12px;
-            i{
+
+            i {
                 color: #C5C5C5;
             }
-            .active{
+
+            .active {
                 color: #EBDC3B;
             }
         }
-        p{
+
+        p {
             font-weight: 500;
             font-size: 16px;
             color: #222;
 
         }
+    }
+}
+
+.all-news-const {
+    min-height: calc(100vh - 192px);
+}
+
+.all-news-div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media screen and (max-width: 1025px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 767px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 500px) {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
