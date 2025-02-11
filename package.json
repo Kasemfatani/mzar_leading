@@ -43,6 +43,7 @@
     "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.54.1",
     "react-phone-number-input": "^3.4.9",
+    "react-world-flags": "^1.6.0",
     "redux": "^5.0.1",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.3",

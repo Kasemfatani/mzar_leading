@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import SingleNews from '../../components/blog/SingleNews';
+import Flag from "react-world-flags";
 import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
 import Loading from '@/app/loading';
@@ -76,6 +76,7 @@ export default function Riviews({ id }) {
                                             768: {
                                                 slidesPerView: 2,
                                                 autoplay: false,
+                                                Navigation: false
                                             },
                                             640: {
                                                 slidesPerView: 1.2,
@@ -92,7 +93,10 @@ export default function Riviews({ id }) {
                                         {data?.map((review) =>
                                             <SwiperSlide key={review.id}>
                                                 <div className="review-cont">
-                                                    <h4>{review.title}</h4>
+                                                    <div className="title">
+                                                        <h4>{review.title}</h4>
+                                                        <Flag code={review.country_code.toUpperCase()} />
+                                                    </div>
                                                     <div className="stars">
                                                         {[...Array(5)].map((star, index) => (
                                                             <i class={`${review.rating > index ? 'fa-solid' : 'fa-regular'} fa-star ${review.rating > index ? 'active' : ''}`}></i>

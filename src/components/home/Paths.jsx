@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Flag from "react-world-flags";
 import Image from 'next/image';
 import Link from 'next/link';
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -9,7 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { API_BASE_URL } from '@/lib/apiConfig';
-import img2 from '/public/conf/10.png';
+import img2 from '/public/conf/10.svg';
 
 
 import Marquee from '../ui/marquee';
@@ -127,8 +128,8 @@ export default function Paths() {
                                     />
 
                                 </div>
-                                <h3 className={`${language === 'ar' ? 'rtl' : 'ltr'}`}>{path.name}</h3>
-                                <div className={`${language === 'ar' ? 'rtl path-duration' : 'path-duration ltr'}`}>{language === 'en' ? 'Duration' : 'مدة الرحلة'} : {path.duration}</div>
+                                <h3 className={`${language === 'ar' ? 'rtl' : 'ltr'}`}>{path.name} </h3>
+                                <div className="path-duration" style={{ direction: `${language === 'ar' ? 'rtl' : 'ltr'}` }}>{language === 'en' ? 'Duration' : 'مدة الرحلة'} : {path.duration}</div>
                                 <p className={`${language === 'ar' ? 'rtl' : 'ltr'}`}>{path.short_description}</p>
                                 <div className="small-imgs-slider w-full" dir='ltr'>
 
@@ -138,7 +139,7 @@ export default function Paths() {
                                         ))}
                                     </Marquee>
                                 </div>
-                                <Link href={`/path?id=${path.id}`} className='view-detials'>{language === 'en' ? 'View Details' : 'عرض التفاصيل'} </Link>
+                                <Link scroll={false} href={`/path?id=${path.id}`} className='view-detials'>{language === 'en' ? 'View Details' : 'عرض التفاصيل'} </Link>
                             </div>
                         </SwiperSlide>
                     )}
