@@ -107,16 +107,13 @@ export default function Latest() {
                                                             <div className="img-cont">
                                                                 <Image src={path.image} width={200} height={200} alt="Mazar" />
                                                                 {/* <div className="overlay">
-                                                    <div className="padge">
-                                                        <span>{language === 'en' ? 'New' : 'جديد'}</span>
-                                                    </div>
-                                                </div> */}
+                                                                        <div className="padge">
+                                                                            <span>{language === 'en' ? 'New' : 'جديد'}</span>
+                                                                        </div>
+                                                                    </div> */}
                                                             </div>
                                                             <h4>{path.title}</h4>
                                                             <p>{path.description}</p>
-
-
-
                                                         </Link>
                                                     </SwiperSlide>
                                                 )}
