@@ -122,7 +122,7 @@ export default function PathInfo(pathData) {
                 </h5>
                 <span>{language === 'en' ? 'Per group up to 4 persons ' : 'لكل مجموعة حتى 4 شخص'}</span>
               </div>
-              <Link href={`/book-path?id=${data.id}`} className="book-link">
+              <Link href={`/book`} className="book-link">
                 {language === 'en' ? 'Book Now' : 'احجز الان'}
               </Link>
             </div>

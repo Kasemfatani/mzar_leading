@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import img1 from '/public/Thaw.jpg';
 import Link from 'next/link';
-export default function PathInfo(pathData) {
+export default function Destinations(pathData) {
     let [more, setMore] = useState(false);
     let [data, setData] = useState(pathData.data);
     //   let [language, setLanguage] = useState(data.lang);
@@ -21,6 +21,8 @@ export default function PathInfo(pathData) {
             };
         }
     }, []);
+    console.log(pathData);
+    
     return (
         <div className="destinations container m-auto">
             <div className="destinations-drid">
