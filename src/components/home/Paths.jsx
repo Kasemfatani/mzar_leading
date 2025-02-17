@@ -56,7 +56,7 @@ export default function Paths() {
             >
                 <div className="small-swiper-img-name">
                     <div className="samll-img-cont">
-                        <Image src={cover} alt="Mazar" width={100} height={100} />
+                        <Image src={cover} alt={`path image`} width={100} height={100} />
                     </div>
                     <h6> {name}  </h6>
                 </div>
@@ -117,16 +117,14 @@ export default function Paths() {
                                             path.most_ordered ?
                                             <div className="most-ordered">{language === 'en' ? 'Most Ordered' : 'الاكثر طلبا'} </div> : null
                                         }
-                                        
                                     </div>
                                     <Image
                                         src={path.cover}
-                                        alt="Mazar"
+                                        alt={`${path.name} image`}
                                         className="path-img"
                                         width={300}
                                         height={300}
                                     />
-
                                 </div>
                                 <h3 className={`${language === 'ar' ? 'rtl' : 'ltr'}`}>{path.name} </h3>
                                 <div className="path-duration" style={{ direction: `${language === 'ar' ? 'rtl' : 'ltr'}` }}>{language === 'en' ? 'Duration' : 'مدة الرحلة'} : {path.duration}</div>

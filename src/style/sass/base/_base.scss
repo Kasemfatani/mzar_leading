@@ -91,6 +91,38 @@ a{
   background-image: linear-gradient(135deg, $hover, $main);
   /* border-radius: 4px 4px 4px 4px; */
 }
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: $main #fff;
+  scroll-behavior: unset !important;
+}
+/*style scroll bar*/
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $main;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $hover;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html[dir="ltr"] .progress-bar {
   background-image: linear-gradient(135deg, $main, $hover);
 }
@@ -163,6 +195,10 @@ html[dir="ltr"] .progress-bar {
   inset-inline-start: 10px;
   z-index: 10;
   text-decoration: none !important;
+}
+.swiper {
+  padding:0 50px !important;
+  margin: 0 -50px !important;
 }
 .fixed-what i {
   width: 60px;

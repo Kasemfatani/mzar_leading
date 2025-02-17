@@ -46,7 +46,9 @@ export default function Latest() {
                 data?.length > 0 ?
                     <div className="content latest" style={{ direction: `${language === 'ar' ? 'rtl' : 'ltr'}` }}>
                         <div className="container m-auto">
-                            <h3>{language === 'en' ? 'Latest news' : 'أحدث الأخبار'} </h3>
+                            <div className="flex items-center justify-between">
+                                <h3>{language === 'en' ? 'Latest news' : 'أحدث الأخبار'} </h3>
+                            </div>
                             <div className="ltr">
                                 {
                                     loading ? <Loading /> :

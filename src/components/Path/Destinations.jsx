@@ -3,12 +3,10 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import img1 from '/public/Thaw.jpg';
 import Link from 'next/link';
-export default function Destinations(pathData) {
-    let [more, setMore] = useState(false);
+export default function PathInfo(pathData) {
     let [data, setData] = useState(pathData.data);
     //   let [language, setLanguage] = useState(data.lang);
     let [language, setLanguage] = useState('en');
-
     let destinations = data.locations
     let [destinationsCopy, setDestinationsCopy] = useState(destinations.slice(0, 4));
     
@@ -21,8 +19,6 @@ export default function Destinations(pathData) {
             };
         }
     }, []);
-    console.log(pathData);
-    
     return (
         <div className="destinations container m-auto">
             <div className="destinations-drid">
@@ -30,7 +26,7 @@ export default function Destinations(pathData) {
                     destinationsCopy.map((item) =>
                         <div className="destination" key={item.id}>
                             <div className="img-cont">
-                                <Image src={item.cover} width={200} height={200} alt="Mazar"></Image>
+                                <Image src={item.cover} width={200} height={200} alt={`${pathData.data.name} image`}></Image>
                             </div>
                             <div className="text">
                                 <h2>{item.name}</h2>
@@ -48,7 +44,7 @@ export default function Destinations(pathData) {
                 <div className="ready ">
                     <h2>{language === 'en' ? 'Ready to start your journey?' : 'مستعد لبدء رحلتك؟'} </h2>
                     <p>{language === 'en' ? 'Please contact us and book your trip' : 'يرجى الاتصال بنا وحجز رحلتك'}</p>
-                    <Link href={'/book'}>{language === 'en' ? 'Book Now' : 'حجز الان'}</Link>
+                    <Link href={`/book-path?id=${data.id}`}>{language === 'en' ? 'Book Now' : 'حجز الان'}</Link>
                 </div>
             </div>
         </div>

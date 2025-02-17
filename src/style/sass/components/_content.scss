@@ -7,15 +7,12 @@
         font-weight: 700;
         margin-bottom: 40px;
     }
-
-    .swiper-slide {
-        padding-top: 20px;
+    .swiper-slide{
+            padding-top: 20px;
     }
-
-    .swiper-slide {
+    .swiper-slide{
         height: auto;
     }
-
     .content-card {
         padding: 20px 16px;
         background-color: $white;
@@ -23,10 +20,9 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-
+        
         &:hover {
             transform: translateY(-20px);
-
             .img-cont {
                 .overlay {
                     background-color: rgba(0, 0, 0, 0);
@@ -59,14 +55,12 @@
             height: 100%;
             object-fit: cover;
         }
-
-        h4 {
+        h4{
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 12px;
         }
-
-        p {
+        p{
             font-size: 16px;
             font-weight: 500;
             margin-bottom: 33px;
@@ -76,70 +70,60 @@
 
     }
 }
-
-.date-book {
+.date-book{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    .book-link {
+    flex-wrap: wrap;
+    gap: 15px;
+    .book-link{
         padding: 8px 32px;
         color: $white;
+        display: flex;
         border-radius: 5px;
         background-color: $main;
         width: fit-content;
-
-        &:hover {
+        &:hover{
             background-color: $hover;
         }
     }
-
-    .date {
+    .date{
         display: flex;
         align-items: center;
         gap: 4px;
         color: #464646;
-
-        i {
+        i{
             font-size: 24px;
         }
-
-        span {
+        span{
             font-size: 16px;
             font-weight: 500;
         }
     }
 }
-
-.latest {
+.latest{
     background-color: $white;
-
-    h3 {
+    h3{
         margin-bottom: 10px;
     }
-
     .content-card {
         &:hover {
             transform: translateY(-20px);
             background-color: rgba(2, 90, 180, .1);
-
             .img-cont {
                 .overlay {
                     background-color: rgba(0, 0, 0, 0);
-
-                    .padge {
+                    .padge{
                         background-color: $main;
                     }
                 }
             }
         }
-
         .img-cont {
-            .overlay {
+            .overlay{
                 display: flex;
                 justify-content: flex-end;
-
-                .padge {
+                .padge{
                     width: fit-content;
                     height: fit-content;
                     background-color: $sec;
@@ -150,8 +134,7 @@
                 }
             }
         }
-
-        p {
+        p{
             margin-bottom: 0;
         }
     }

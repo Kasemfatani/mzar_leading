@@ -45,11 +45,11 @@ export default function PathInfo(pathData) {
                 <div className="img-cont" key={index}>
                   {
                     index == 2 ?
-                      <Image src={img.image} alt="Mazar" width={200} height={200} />
+                      <Image src={img.image} alt={`${pathData.data.name} image`} width={200} height={200} />
                       :
                       <a href={img.image} data-fancybox="post">
                         <figure>
-                          <Image src={img.image} alt="Mazar" width={200} height={200} />
+                          <Image src={img.image} alt={`${pathData.data.name} image`} width={200} height={200} />
                         </figure>
                       </a>
                   }
@@ -71,7 +71,7 @@ export default function PathInfo(pathData) {
                   {
                     data.services.map((facility, index) =>
                       <div className="facility-cont" key={index}>
-                        <Image src={facility.image} alt="Mazar" width={200} height={200} />
+                        <Image src={facility.image} alt={`${pathData.data.name} image`} width={200} height={200} />
                         <p>{facility.name}</p>
                       </div>
                     )
@@ -89,7 +89,7 @@ export default function PathInfo(pathData) {
                 </div>
               </div>
             </div>
-            
+
           </div>
 
 
@@ -97,7 +97,7 @@ export default function PathInfo(pathData) {
         <div className="flex flex-col gap-2 ll-siide">
           <div className="free-auth">
             <Link href="https://book.nusuk.sa/sa-ar/organizer/shrk-mz-r-laol-llsfr-o-lsy-h" className="auth">
-              <Image src={img2} alt="Mazar" width={200} height={200}></Image>
+              <Image src={img2} alt={`${pathData.data.name} image`} width={200} height={200}></Image>
               <h4>{language === 'en' ? 'Verified by nusuk' : ' معتمد من نسك'} </h4>
               <i className="fa-solid fa-arrow-up"></i>
             </Link>
@@ -108,7 +108,7 @@ export default function PathInfo(pathData) {
           </div>
           <div className="btn-offer-cont">
             <div className="cont-offeree">
-            <Offer />
+              <Offer />
             </div>
             <div className="btn-free">
 
@@ -146,7 +146,7 @@ export default function PathInfo(pathData) {
                     }}
                     key={index}
                     className="place-cont" >
-                    <Image src={img.cover} alt="Mazar" width={200} height={200} />
+                    <Image src={img.cover} alt={`${pathData.data.name} image`} width={200} height={200} />
                     <p>{img.name}</p>
                   </motion.div>
                 )
@@ -158,34 +158,34 @@ export default function PathInfo(pathData) {
       <div className="cont-desc">
         <h3>{language === 'en' ? 'Description' : 'وصف الرحلة'}</h3>
         <p className='desc'>{pathData.data.description}</p>
-        
+
       </div>
       <div className="activities">
-              <h5>{language === 'en' ? 'Activities' : 'الأنشطة'}</h5>
-              <p>{language === 'en' ? 'See the activities and places you will visit' : 'شاهد النشاطات والأماكن التي ستزورها'}</p>
-              <div className="activities-grid">
-                {
-                  data.in_directions.map((activity, index) =>
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: -50 }} // Initial animation state (faded and shifted left)
-                      whileInView={{ opacity: 1, y: 0 }} // Animation state when in view (fully visible and reset position)
-                      viewport={{ once: true, amount: 0.8 }}
-                      transition={{
-                        delay: index * 0.2,
-                        type: 'spring', // Using spring animation for smooth motion
-                        bounce: 0.2, // Small bounce effect for the animation
-                        duration: .3, // Duration of the animation
+        <h5>{language === 'en' ? 'Activities' : 'الأنشطة'}</h5>
+        <p>{language === 'en' ? 'See the activities and places you will visit' : 'شاهد النشاطات والأماكن التي ستزورها'}</p>
+        <div className="activities-grid">
+          {
+            data.in_directions.map((activity, index) =>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: -50 }} // Initial animation state (faded and shifted left)
+                whileInView={{ opacity: 1, y: 0 }} // Animation state when in view (fully visible and reset position)
+                viewport={{ once: true, amount: 0.8 }}
+                transition={{
+                  delay: index * 0.2,
+                  type: 'spring', // Using spring animation for smooth motion
+                  bounce: 0.2, // Small bounce effect for the animation
+                  duration: .3, // Duration of the animation
 
-                      }}
-                      className="activity-cont">
-                      <Image src={activity.image} alt="Mazar" width={200} height={200} />
-                      <p>{activity.name}</p>
-                    </motion.div>
-                  )
-                }
-              </div>
-            </div>
+                }}
+                className="activity-cont">
+                <Image src={activity.image} alt={`${pathData.data.name} image`} width={200} height={200} />
+                <p>{activity.name}</p>
+              </motion.div>
+            )
+          }
+        </div>
+      </div>
 
 
     </div>

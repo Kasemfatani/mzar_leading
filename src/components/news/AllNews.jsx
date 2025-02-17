@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import soonImage from '/public/soon_overlay.png'
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -77,7 +76,9 @@ export default function AllNews() {
                             </div>
                         </div>
                     </div>
-                    : null
+                    : <div className="soon" style={{backgroundImage: `url(${soonImage.src}`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+
+                    </div>
             }
         </div>
     );
