@@ -22,6 +22,7 @@ export default function Hero() {
     const [language, setLanguage] = useState('en');  // Default language is 'en'
     useEffect(() => {
         // setLoading(true);
+
         if (typeof window !== 'undefined') {
             // Define the headers with the selected language
             setLanguage(localStorage.getItem('lang'));
@@ -35,7 +36,9 @@ export default function Hero() {
                 }).then(response => {
                     setData(response.data);  // Set the response data to state
                     setLoading(false);  // Set loading to false
-
+                    console.log(language);
+                    
+                    document.title = localStorage.getItem('lang') == 'en' ? 'Mzar: Your Journey into the Depths of History and Spirituality' : 'مزار: رحلتك إلى أعماق التاريخ والروحانية';
                 })
                 .catch(error => {
                     setError(error);  // Handle any errors

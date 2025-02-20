@@ -22,7 +22,7 @@ export default function Footer() { // Defining the main functional component nam
             {
                 pathname != '/path' ?
 
-                    <a href="https://wa.me/+966580121025?text=Good%20Morning%20Mzar" className="fixed-what">
+                    <a href="https://wa.me/+966580121025?text=Hello, I am interested to know more about Mzar" className="fixed-what">
                         <i className="fa-brands fa-whatsapp"></i>
                     </a>
                     : null
