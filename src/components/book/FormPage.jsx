@@ -68,14 +68,8 @@ export default function FormPage(props) {
                 lang: 'en',
             },
         }).then(response => {
-            // setDone(true);
             router.push('/congats');
-            // document.querySelector('html').style.overflow = 'hidden';
-            // const interval = setInterval(() => {
-            //     // setDone(false);
-            //     // document.querySelector('html').style.overflow = 'auto';
-            //     clearInterval(interval);
-            // }, 3000);
+            
         })
     };
     useEffect(() => {
@@ -132,23 +126,38 @@ export default function FormPage(props) {
         },
     });
     const Submit = (data) => {
-        console.log(data);
+        console.log("Form Data Submitted:", data);
         let code = '';
+    
         for (let index = 0; index < countriesCodes.length; index++) {
-            if (countriesCodes[index].code==document.querySelector(".PhoneInputCountrySelect").value) {
-                code = (countriesCodes[index].dial_code);
+            if (countriesCodes[index].code === document.querySelector(".PhoneInputCountrySelect").value) {
+                code = countriesCodes[index].dial_code;
             }
-            
-            
         }
+    
         setVisited(true);
+    
         if (captchaa) {
-            console.log("ffffffff");
-            console.log(data);
-            console.log(code);
+            console.log("ReCAPTCHA Verified");
+    
             let formData = `${data.date.getDate()}-${data.date.getMonth() + 1}-${data.date.getFullYear()}`;
-            console.log(data);
-            sendPostRequest(data,code);
+    
+            // **Push data to GTM dataLayer**
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'form_submission',
+                customer_name: data.name,
+                customer_whatsapp: data.phone,
+                package_id: data.destniation.split('-')[0],
+                package_name: data.destniation.split('-')[1],
+                booking_date: formData,
+                country_key: code
+            });
+    
+            console.log("Data Layer Updated:", window.dataLayer);
+    
+            // Send the API request
+            sendPostRequest(data, code);
         }
     };
     let countriesCodes = [
