@@ -69,6 +69,7 @@ export default function FormPage(props) {
         }).then(response => {
             // setDone(true);
             router.push(`/congats?name=${data?.name}&phone=${data?.phone}&package=${direct[1]}`);
+            // router.push(`/congats`);
             // document.querySelector('html').style.overflow = 'hidden';
             // const interval = setInterval(() => {
             //     // setDone(false);
