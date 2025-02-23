@@ -40,7 +40,7 @@ import {
 import { motion } from 'framer-motion'; // Importing the motion component from Framer Motion for animations
 import axios from 'axios';
 import Loading from '@/app/loading';
-import { API_BASE_URL } from '../../lib/apiConfig';
+import { API_BASE_URL } from '@/lib/apiConfig';
 export default function FormPage(props) {
     const [loading, setLoading] = useState(true); // State for loading indicator
     const [data, setData] = useState(null);
@@ -103,23 +103,20 @@ export default function FormPage(props) {
     }, []);  // Run this effect whenever the `language` changes
     const router = useRouter()
 
-    let setDone = props.setDone;
     // const [date, setDate] = React.useState<Date>()
     const [date, setDate] = useState(new Date());
     const [visited, setVisited] = useState(false);
     const [captchaa, setCaptchaa] = useState(false);
     function onChange(value) {
         setCaptchaa(true);
-        console.log(captchaa);
     }
-    const formSchema = z
-        .object({
+    const formSchema = z.object({
 
-            name: z.string().min(1, { message: "Name is required" }).max(50, { message: "Name must be at most 50 characters" }),
-            phone: z.string().refine(validator.isMobilePhone, { message: "Invalid phone number" }),
-            date: z.date(),
-            destniation: z.string().min(1, { message: "Destniation is required" }),
-        })
+        name: z.string().min(1, { message: "Name is required" }).max(50, { message: "Name must be at most 50 characters" }),
+        phone: z.string().refine(validator.isMobilePhone, { message: "Invalid phone number" }),
+        date: z.date(),
+        destniation: z.string().min(1, { message: "Destniation is required" }).optional(),
+    })
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -131,20 +128,18 @@ export default function FormPage(props) {
         },
     });
     const Submit = (data) => {
-        console.log("Form Data Submitted:", data);
+        
         let code = '';
 
         for (let index = 0; index < countriesCodes.length; index++) {
-            if (countriesCodes[index].code === document.querySelector(".PhoneInputCountrySelect").value) {
-                code = countriesCodes[index].dial_code;
+            if (countriesCodes[index].code == document.querySelector(".PhoneInputCountrySelect").value) {
+                code = (countriesCodes[index].dial_code);
             }
         }
 
         setVisited(true);
 
         if (captchaa) {
-            console.log("ReCAPTCHA Verified");
-
             let formData = `${data.date.getDate()}-${data.date.getMonth() + 1}-${data.date.getFullYear()}`;
 
             // **Push data to GTM dataLayer**
@@ -161,8 +156,8 @@ export default function FormPage(props) {
 
             console.log("Data Layer Updated:", window.dataLayer);
 
-            // Send the API request
             sendPostRequest(data, code);
+
         }
     };
     let countriesCodes = [
@@ -1379,27 +1374,10 @@ export default function FormPage(props) {
     ];
     return (
         loading ? <div className="w-full"><Loading /> </div> :
-            <motion.div
-                initial={{ opacity: 0, x: 300 }} // Initial animation state (faded and shifted left)
-                whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                viewport={{ once: true }}
-                transition={{
-                    delay: 0.2,
-                    // type: 'spring', // Using spring animation for smooth motion
-                    bounce: 0.2, // Small bounce effect for the animation
-                }}
-                className='w-full form'>
+            <div className='w-full form' style={language === 'ar' ? { direction: 'rtl' } : { direction: 'ltr' }}>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(Submit)} >
-                        <motion.div
-                            initial={{ opacity: 0, x: 100 }} // Initial animation state (faded and shifted left)
-                            whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.3,
-                                // type: 'spring', // Using spring animation for smooth motion
-                                bounce: 0.2, // Small bounce effect for the animation
-                            }}>
+                        <div >
                             <FormField
                                 control={form.control}
                                 name="nameLabel"
@@ -1407,22 +1385,14 @@ export default function FormPage(props) {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <FormLabel>Name</FormLabel>
+                                            <FormLabel>{language === 'ar' ? 'الاسم' : 'Name'}</FormLabel>
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 100 }} // Initial animation state (faded and shifted left)
-                            whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.3,
-                                // type: 'spring', // Using spring animation for smooth motion
-                                bounce: 0.2, // Small bounce effect for the animation
-                            }}>
+                        </div>
+                        <div >
                             <FormField
                                 control={form.control}
                                 name="name"
@@ -1440,16 +1410,8 @@ export default function FormPage(props) {
                                     </FormItem>
                                 )}
                             />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 100 }} // Initial animation state (faded and shifted left)
-                            whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.4,
-                                // type: 'spring', // Using spring animation for smooth motion
-                                bounce: 0.2, // Small bounce effect for the animation
-                            }}>
+                        </div>
+                        <div >
                             <FormField
                                 control={form.control}
                                 name="whatsapp"
@@ -1457,24 +1419,17 @@ export default function FormPage(props) {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <FormLabel>Whats app number</FormLabel>
+                                            <FormLabel>{language === 'ar' ? 'رقم الواتساب' : 'whatsapp number'}</FormLabel>
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 100 }} // Initial animation state (faded and shifted left)
-                            whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.4,
-                                // type: 'spring', // Using spring animation for smooth motion
-                                bounce: 0.2, // Small bounce effect for the animation
-                            }}>
+                        </div>
+                        <div >
                             <FormField
-                                className="w-full"
+                                className="w-full ltr"
+                                style={{ direction: 'ltr' }}
                                 control={form.control}
                                 name="phone" // Field for phone number
                                 render={({ field }) => (
@@ -1491,16 +1446,8 @@ export default function FormPage(props) {
                                     </FormItem>
                                 )}
                             />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 100 }} // Initial animation state (faded and shifted left)
-                            whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                // type: 'spring', // Using spring animation for smooth motion
-                                bounce: 0.2, // Small bounce effect for the animation
-                            }}>
+                        </div>
+                        <div >
                             <FormField
                                 control={form.control}
                                 name="whatsapp"
@@ -1508,22 +1455,14 @@ export default function FormPage(props) {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <FormLabel>Destniation (optional)</FormLabel>
+                                            <FormLabel>{language === 'ar' ? 'الوجهة' : 'Destniation'}</FormLabel>
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 100 }} // Initial animation state (faded and shifted left)
-                            whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                // type: 'spring', // Using spring animation for smooth motion
-                                bounce: 0.2, // Small bounce effect for the animation
-                            }}>
+                        </div>
+                        <div >
                             <FormField
                                 control={form.control}
                                 name="destniation"
@@ -1543,7 +1482,7 @@ export default function FormPage(props) {
                                             <SelectContent>
                                                 <SelectGroup>
                                                     {data?.data.packages.map((packageItem, index) => (
-                                                        <SelectItem value={`${packageItem.id}-${packageItem.name}`}>{packageItem.name}</SelectItem>
+                                                        <SelectItem value={`${packageItem.id}-${packageItem.name}`} key={index}>{packageItem.name}</SelectItem>
                                                     ))}
                                                 </SelectGroup>
                                             </SelectContent>
@@ -1552,16 +1491,8 @@ export default function FormPage(props) {
                                     </FormItem>
                                 )}
                             />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 100 }} // Initial animation state (faded and shifted left)
-                            whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.6,
-                                // type: 'spring', // Using spring animation for smooth motion
-                                bounce: 0.2, // Small bounce effect for the animation
-                            }}>
+                        </div>
+                        <div >
                             <FormField
                                 control={form.control}
                                 name="whatsapp"
@@ -1569,22 +1500,14 @@ export default function FormPage(props) {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <FormLabel>Arrive date (optional)</FormLabel>
+                                            <FormLabel>{language === 'ar' ? 'تاريخ الوصول' : 'Arrive date'}</FormLabel>
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 100 }} // Initial animation state (faded and shifted left)
-                            whileInView={{ opacity: 1, x: 0 }} // Animation state when in view (fully visible and reset position)
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.6,
-                                // type: 'spring', // Using spring animation for smooth motion
-                                bounce: 0.2, // Small bounce effect for the animation
-                            }}>
+                        </div>
+                        <div >
                             <FormField
                                 control={form.control}
                                 name="date"
@@ -1623,7 +1546,7 @@ export default function FormPage(props) {
                                     </FormItem>
                                 )}
                             />
-                        </motion.div>
+                        </div>
                         <div className='captcha'>
                             <ReCAPTCHA sitekey="6Lc3A4oqAAAAALKG0Ww3vyaaIdmMWIAjXIi6xvoa" onChange={onChange} />
                             <p className={`${!captchaa && visited ? 'block' : 'hidden'} captcha-text`}>Please verify that you are not a robot</p>
@@ -1631,6 +1554,6 @@ export default function FormPage(props) {
                         <Button type="submit" className='text-xl py-4 rounded-xl min-w-32 h-13 submit '>Submit</Button>
                     </form>
                 </Form>
-            </motion.div>
+            </div>
     );
 }
