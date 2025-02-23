@@ -17,12 +17,12 @@ export default function Book() {
             window.dataLayer.push({
                 event: 'form_submission',
                 customer_name: name,
-                customer_whatsapp: phone,
+                customer_whatsapp: "+" + phone.split(' ').join(''),
                 package_name: package_name,
             });
         }
     }, [name, phone, package_name]); // Added dependency array
-
+    
     return (
         <div className="popup">
             <div className="popup-cont">
