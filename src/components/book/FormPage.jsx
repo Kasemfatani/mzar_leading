@@ -68,7 +68,7 @@ export default function FormPage(props) {
                 lang: 'en',
             },
         }).then(response => {
-            router.push('/congats');
+            router.push(`/congats?name=${data?.name}&phone=${data?.phone}&package=${data?.destniation.split('-')[1]}`);
             
         })
     };
