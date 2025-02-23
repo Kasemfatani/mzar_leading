@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'; // Importing the motion component from F
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import img1 from '/public/Thaw.jpg';
 import img2 from '/public/conf/10.png';
-
+import sar from '/public/sar.png';
 import Offer from './Offer';
 import Explore from '../home/Explore';
 import { useSearchParams } from 'next/navigation';
@@ -121,13 +121,13 @@ export default function PathInfo(pathData) {
                   <span className="from">{language === 'en' ? 'From' : 'من'}</span>
                   <h5>
                     {/* {language === 'en' ? 'Start from' : 'تبدأ من'} */}
-                    <span className="discounted-price">SAR{pathData.data.starting_price.toFixed(2)}</span>
+                    <Image src={sar} alt={`${pathData.data.name} image`} width={40} height={40} /><span className="discounted-price">{pathData.data.starting_price.toFixed(2)}</span>
                     {/* {language === 'en' ? ' instead of' : 'بدلاً من '} */}
-                    <span className="original-price">SAR{(pathData.data.starting_price * 1.2).toFixed(2)}</span>
+                    <Image src={sar} alt={`${pathData.data.name} image`} width={20} height={20} /><span className="original-price">{(pathData.data.starting_price * 1.2).toFixed(2)}</span>
                   </h5>
                   <span>{language === 'en' ? 'Per group up to 4 persons ' : 'لكل مجموعة حتى 4 شخص'}</span>
                 </div>
-                <Link href={`/book`} className="book-link">
+                <Link href={`/book-path?id=${data.id}`} className="book-link">
                   {language === 'en' ? 'Book Now' : 'احجز الان'}
                 </Link>
               </div>
@@ -192,7 +192,7 @@ export default function PathInfo(pathData) {
         </div>
       </div>
       {
-        pathId == 47 || pathId == 49 || pathId == 45 ?
+        pathId == 47|| pathId == 49 || pathId == 45 ?
           < div className="mb-10">
             <Explore />
           </div >

@@ -22,7 +22,7 @@ export default function Book() {
             });
         }
     }, [name, phone, package_name]); // Added dependency array
-    
+
     return (
         <div className="popup">
             <div className="popup-cont">
