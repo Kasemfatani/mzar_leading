@@ -11,6 +11,8 @@ export default function Offer() {
     }
 
     const today = new Date();
+    const year = today.getFullYear(); // Get current year
+    const month = String(today.getMonth() + 1).padStart(2, "0"); // Get current month (0-based index)
     const end = isEven(today.getDate()) ? today.getDate() + 1 : today.getDate() + 2;
     const formattedEnd = String(end).padStart(2, "0"); // Ensure double-digit format for day
 
@@ -19,8 +21,8 @@ export default function Offer() {
             setLanguage(localStorage.getItem('lang') || 'en');
         }
 
-        // Construct a valid Date object
-        const openingDate = new Date(`2025-02-${formattedEnd}T00:00:00Z`).getTime();
+        // Use dynamic year and month instead of hardcoding
+        const openingDate = new Date(`${year}-${month}-${formattedEnd}T00:00:00Z`).getTime();
 
         const timer = setInterval(() => {
             const now = new Date().getTime();
