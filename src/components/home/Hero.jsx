@@ -66,20 +66,10 @@ export default function Hero() {
                                 </div>
                                 <div className="features container m-auto">
                                     {data?.data.map((feature, index) => (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: -100 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{
-                                                type: 'spring',
-                                                bounce: 0.2,
-                                                duration: index + 1 * .3,
-                                            }}
-                                            key={index}
-                                            viewport={{ once: true }}
-                                            className="feature">
+                                        <div key={index} className="feature">
                                             <Image src={feature.icon} alt="Mazar" width={32} height={32} className=" h-8 w-auto " />
                                             <p>{feature.title}</p>
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>

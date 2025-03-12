@@ -9,6 +9,7 @@ import validator from "validator";
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import PhnoeInput from 'react-phone-number-input'; // Importing a phone number input component.
+import { useSearchParams } from 'next/navigation'; // Import hook
 import {
     Form,
     FormControl,
@@ -42,6 +43,21 @@ import axios from 'axios';
 import Loading from '@/app/loading';
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function FormPage(props) {
+    const router = useRouter()
+    const searchParams = useSearchParams(); // Get URL parameters
+    const [gclid, setGclid] = useState(null); // Store GCLID
+
+    useEffect(() => {
+        // Extract GCLID from URL if available
+        const gclidParam = searchParams.get("gclid");
+        if (gclidParam) {
+            setGclid(gclidParam); // Save it in state
+        }
+    }, [searchParams]); 
+    console.log(gclid);
+    console.log(searchParams.get("gclid"));
+    
+    
     const [loading, setLoading] = useState(true); // State for loading indicator
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
@@ -57,8 +73,11 @@ export default function FormPage(props) {
             package_id: direct[0],
             papackage_name: direct[1],
             booking_date: formData,
-            country_key: code
+            country_key: code,
+            gclid: gclid
         };
+        console.log(queryParams);
+        
         return axios({
             method: 'post',
             url: url,
@@ -66,9 +85,10 @@ export default function FormPage(props) {
             headers: {
                 lang: 'en',
             },
-        }).then(response => {
+        })
+        .then(response => {
             // setDone(true);
-            router.push(`/congats?name=${data?.name}&phone=${data?.phone}&package=${direct[1]}`);
+            router.push(`/congats?name=${data?.name}&phone=${data?.phone}&package=${direct[1]}&gclid=${gclid}`);
             // router.push(`/congats`);
             // document.querySelector('html').style.overflow = 'hidden';
             // const interval = setInterval(() => {
@@ -102,8 +122,7 @@ export default function FormPage(props) {
                 });
         }
     }, []);  // Run this effect whenever the `language` changes
-    const router = useRouter()
-
+    
     // const [date, setDate] = React.useState<Date>()
     const [date, setDate] = useState(new Date());
     const [visited, setVisited] = useState(false);
@@ -129,20 +148,15 @@ export default function FormPage(props) {
         },
     });
     const Submit = (data) => {
-        
         let code = '';
-
         for (let index = 0; index < countriesCodes.length; index++) {
             if (countriesCodes[index].code == document.querySelector(".PhoneInputCountrySelect").value) {
                 code = (countriesCodes[index].dial_code);
             }
         }
-
         setVisited(true);
-
         if (captchaa) {
             let formData = `${data.date.getDate()}-${data.date.getMonth() + 1}-${data.date.getFullYear()}`;
-
             // **Push data to GTM dataLayer**
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
@@ -152,7 +166,8 @@ export default function FormPage(props) {
                 package_id: data.destniation.split('-')[0],
                 package_name: data.destniation.split('-')[1],
                 booking_date: formData,
-                country_key: code
+                country_key: code,
+                gclid: gclid // Pass GCLID here
             });
 
             console.log("Data Layer Updated:", window.dataLayer);
