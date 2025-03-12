@@ -5,9 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import Loading from '@/app/loading';
 export default function HeaderWrapper() {
   return (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
           <Header />
       </Suspense>
   );

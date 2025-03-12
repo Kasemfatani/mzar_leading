@@ -44,7 +44,7 @@ import Loading from '@/app/loading';
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function FormPageWrapper() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
             <FormPage />
         </Suspense>
     );
