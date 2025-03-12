@@ -4,7 +4,15 @@ import c from '/public/c.svg'
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
-export default function Footer() { // Defining the main functional component named 'Footer'.
+import Loading from '@/app/loading';
+export default function FooterWrapper() {
+    return (
+        <Suspense fallback={<Loading />}>
+            <Footer />
+        </Suspense>
+    );
+  }
+function Footer() { // Defining the main functional component named 'Footer'.
     const [language, setLanguage] = useState('en');  // Default language is 'en'
     const pathname = usePathname()
     const searchParams = useSearchParams();
