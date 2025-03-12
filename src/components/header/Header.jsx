@@ -1,12 +1,18 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import logo from '../../assets/images/home/logo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-
-export default function Header() {
+export default function HeaderWrapper() {
+  return (
+      <Suspense fallback={<div>Loading...</div>}>
+          <Header />
+      </Suspense>
+  );
+}
+function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
