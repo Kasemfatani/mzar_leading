@@ -62,8 +62,6 @@ function FormPage() {
             setGclid(gclidParam); // Save it in state
         }
     }, [searchParams]); 
-    console.log(gclid);
-    console.log(searchParams.get("gclid"));
     
     
     const [loading, setLoading] = useState(true); // State for loading indicator
@@ -84,7 +82,6 @@ function FormPage() {
             country_key: code,
             gclid: gclid
         };
-        console.log(queryParams);
         
         return axios({
             method: 'post',
@@ -178,7 +175,6 @@ function FormPage() {
                 gclid: gclid // Pass GCLID here
             });
 
-            console.log("Data Layer Updated:", window.dataLayer);
 
             sendPostRequest(data, code);
 

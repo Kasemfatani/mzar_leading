@@ -43,8 +43,6 @@ export default function Riviews({ id }) {
                 });
         }
     }, []);  // Run this effect whenever the `language` changes
-    console.log(data);
-
     return (
         <>
             {

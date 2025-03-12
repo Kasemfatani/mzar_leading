@@ -10,8 +10,10 @@ import Loading from '../loading';
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Home() {
   const searchParams = useSearchParams()
-  const [pathId, setPathId] = useState(searchParams.get('id'))
-  // const categoryId = searchParams.get('subId')
+  const pathId=searchParams.get('id');
+  const gclid = searchParams.get('gclid');
+  console.log(gclid);
+  
   const [loading, setLoading] = useState(true); // State for loading indicator
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -58,7 +60,7 @@ export default function Home() {
             {
               pathname == '/path' ?
 
-                <a href={`https://wa.me/+966580121025?text=hello! I am interested in ${data.name} , i would like to know more about it`} className="fixed-what">
+                <a href={`https://wa.me/+966580121025?text=hello! I am interested in ${data.name} ${gclid ? `number ${gclid}` : ''}, i would like to know more about it`} className="fixed-what">
                   <i className="fa-brands fa-whatsapp"></i>
                 </a>
                 : null

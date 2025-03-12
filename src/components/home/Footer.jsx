@@ -1,16 +1,15 @@
 'use client'
 import React, { useEffect, useState } from 'react'; // Importing React to use JSX syntax and create components.
 import c from '/public/c.svg'
-import { Facebook, Instagram, Linkedin, Twitter, X, Youtube } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-
-
+import { usePathname, useSearchParams } from 'next/navigation';
 export default function Footer() { // Defining the main functional component named 'Footer'.
     const [language, setLanguage] = useState('en');  // Default language is 'en'
     const pathname = usePathname()
-
+    const searchParams = useSearchParams();
+    const gclid = searchParams.get('gclid');
+    console.log(gclid);
     useEffect(() => {
         if (typeof window !== 'undefined') {
             // Define the headers with the selected language
@@ -21,8 +20,7 @@ export default function Footer() { // Defining the main functional component nam
         <footer className={`${language === 'en' ? 'ltr' : 'rtl'}`}> {/* Main footer container with padding and background color */}
             {
                 pathname != '/path' ?
-
-                    <a href="https://wa.me/+966580121025?text=Hello, I am interested to know more about Mzar" className="fixed-what">
+                    <a href={`https://wa.me/+966580121025?text=Hello, I am interested to know more about Mzar ` + (gclid ? `number ${gclid}` : '')} className="fixed-what">
                         <i className="fa-brands fa-whatsapp"></i>
                     </a>
                     : null

@@ -41,7 +41,6 @@ export default function SingleBlog() {
                 });
         }
     }, []);  // Run this effect whenever the `language` changes
-    console.log(data);
     
     function formatArabicDate(dateString) {
         // Parse the input date string into a JavaScript Date object

@@ -39,7 +39,6 @@ export default function About() {
                 }).then(response => {
                     setNumbers(response.data);  // Set the response data to state
                     setLoading(false);  // Set loading to false
-                    console.log(response.data);
                     
                 }).catch(error => {
                     setError(error);  // Handle any errors

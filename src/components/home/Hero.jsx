@@ -35,9 +35,7 @@ export default function Hero() {
                     headers: headers,
                 }).then(response => {
                     setData(response.data);  // Set the response data to state
-                    setLoading(false);  // Set loading to false
-                    console.log(language);
-                    
+                    setLoading(false);  // Set loading to false                    
                     document.title = localStorage.getItem('lang') == 'en' ? 'Mzar: Your Journey into the Depths of History and Spirituality' : 'مزار: رحلتك إلى أعماق التاريخ والروحانية';
                 })
                 .catch(error => {
