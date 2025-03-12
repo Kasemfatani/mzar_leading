@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Input } from '../ui/input';
 import ReCAPTCHA from "react-google-recaptcha"
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -42,7 +42,15 @@ import { motion } from 'framer-motion'; // Importing the motion component from F
 import axios from 'axios';
 import Loading from '@/app/loading';
 import { API_BASE_URL } from '@/lib/apiConfig';
-export default function FormPage(props) {
+export default function FormPageWrapper() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <FormPage />
+        </Suspense>
+    );
+}
+
+function FormPage() {
     const router = useRouter()
     const searchParams = useSearchParams(); // Get URL parameters
     const [gclid, setGclid] = useState(null); // Store GCLID

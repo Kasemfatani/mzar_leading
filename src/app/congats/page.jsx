@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import doneImage from '/public/done.svg';
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 export default function Book() {
     const searchParams = useSearchParams();  // Fixed variable name

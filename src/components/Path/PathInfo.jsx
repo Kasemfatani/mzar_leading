@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fancybox } from "@fancyapps/ui";
 import { motion } from 'framer-motion';
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import img1 from '/public/Thaw.jpg';
@@ -14,9 +13,9 @@ import { useSearchParams } from 'next/navigation';
 
 export default function PathInfo(pathData) {
   const searchParams = useSearchParams();
-  const [pathId, setPathId] = useState(searchParams.get('id'));
+  const pathId = searchParams.get('id');
   const [gclid, setGclid] = useState(null); // Store GCLID
-  const [data, setData] = useState(pathData.data);
+  const data=pathData.data;
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {
@@ -102,7 +101,6 @@ export default function PathInfo(pathData) {
 
                 {/* Book Now link with GCLID */}
                 <Link href={gclid?`/book?id=${data.id}&gclid=${gclid}`:`/book?id=${data.id}`} className="book-link">
-                {/* gclid ? `${path}?gclid=${gclid}` : path */}
                   {language === 'en' ? 'Book Now' : 'احجز الان'}
                 </Link>
               </div>
