@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'; // Importing React to use JSX syntax and create components.
+import React, { Suspense, useEffect, useState } from 'react'; // Importing React to use JSX syntax and create components.
 import c from '/public/c.svg'
 import Link from 'next/link';
 import Image from 'next/image';
